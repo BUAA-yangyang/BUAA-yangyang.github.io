@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    471
+                    622
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -505,7 +505,16 @@
 <li>增强系统的可维护性（只需要你修改Set和Get方法，因为你已经统一了接口👆）</li>
 </ul>
 <hr>
-<h1 id="3-封装的具体应用：单例模式"><a href="#3-封装的具体应用：单例模式" class="headerlink" title="3.封装的具体应用：单例模式"></a>3.封装的具体应用：单例模式</h1><p>（吃饭去吃饭去，要饿死了）</p>
+<h1 id="3-如何使用封装"><a href="#3-如何使用封装" class="headerlink" title="3.如何使用封装"></a>3.如何使用封装</h1><ul>
+<li>首先将对应的属性和易被感染的方法用”Private”隐藏起来，将其对应的Set与Get方法用”Public”公开，对外提供接口</li>
+<li>修饰符访问权限：<br><img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/17.png?raw=true" alt="修饰符访问权限"></li>
+<li>在Set方法里设置相应的逻辑，对非法数据与操作进行过滤</li>
+</ul>
+<hr>
+<h1 id="4-封装的具体应用：单例模式"><a href="#4-封装的具体应用：单例模式" class="headerlink" title="4.封装的具体应用：单例模式"></a>4.封装的具体应用：单例模式</h1><ul>
+<li>产生原因：希望使用者不能自己随意创建该类的对象，只能获取一个类中自己产生的对象→即该类在内存中只有一个对象存在（系统日志、配置文件……）</li>
+<li>该类一般没有属性，无法继承，无法拓展，也无法被更改</li>
+</ul>
 
                 
             </div>
@@ -1034,7 +1043,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">3.1k</span>&nbsp;字
+                class="white-color">3.3k</span>&nbsp;字
             
             
             
