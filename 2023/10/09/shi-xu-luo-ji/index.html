@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    773
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    6 分
                 </div>
                 
 
@@ -492,7 +492,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="时序逻辑"><a href="#时序逻辑" class="headerlink" title="时序逻辑"></a>时序逻辑</h1><h2 id="1-锁存器与触发器"><a href="#1-锁存器与触发器" class="headerlink" title="1.锁存器与触发器"></a>1.锁存器与触发器</h2><h3 id="时序逻辑电路特点"><a href="#时序逻辑电路特点" class="headerlink" title="时序逻辑电路特点"></a><em>时序逻辑电路特点</em></h3><ul>
+                <h1 id="时序逻辑"><a href="#时序逻辑" class="headerlink" title="时序逻辑"></a>时序逻辑</h1><hr>
+<h2 id="1-锁存器与触发器"><a href="#1-锁存器与触发器" class="headerlink" title="1.锁存器与触发器"></a>1.锁存器与触发器</h2><h3 id="时序逻辑电路特点"><a href="#时序逻辑电路特点" class="headerlink" title="时序逻辑电路特点"></a><em>时序逻辑电路特点</em></h3><ul>
 <li>当时的输出由当时的输入与电路的当前（原来）状态决定——具有“记忆”功能</li>
 <li>对于触发器有两个互非的输出Q,$\overline{\text{Q}}$，Q&#x3D;0时为0态，Q&#x3D;1时为1态</li>
 <li>无外加信号作用时，触发器保持原态→n级触发器可以记忆n位二进制信息的2<sup>n</sup>种状态</li>
@@ -538,16 +539,74 @@
 <li>复位信号：RESET&#x3D;1时，D触发器复位（Q&#x3D;0）；RESET&#x3D;0时，D触发器正常工作</li>
 <li>寄存器：<br><img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/12.png?raw=true" alt="电路结构图"><br>（1）$\overline{\text{R}}$&#x3D;0时，Q<sub>0</sub>Q<sub>1</sub>Q<sub>2</sub>Q<sub>3</sub>&#x3D;0000<br>（2）CP上升沿来到时，Q<sub>0</sub>Q<sub>1</sub>Q<sub>2</sub>Q<sub>3</sub>&#x3D;D<sub>0</sub>D<sub>1</sub>D<sub>2</sub>D<sub>3</sub><br>工作方式：并入并出</li>
 </ul>
-<h3 id="JK锁存器"><a href="#JK锁存器" class="headerlink" title="JK锁存器"></a><em>JK锁存器</em></h3><p><img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/13.png?raw=true" alt="电路结构图"></p>
-<ul>
-<li>JK锁存器与D触发器的区别：后者无法做到保持原态（CP&#x3D;1时）；前者增加两条反馈线，把R改为K，S改名为J→没有约束条件，把RS＝ 11的无效状态变为JK触发器的翻转（计数） 功能</li>
-<li>CP&#x3D;0时，保持原态</li>
-<li>CP&#x3D;1时，由J、K决定状态</li>
-<li>特性表：<br><img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/14.png?raw=true" alt="特性表"></li>
-<li>特性方程：<br><img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/15.png?raw=true" alt="特性方程"></li>
-<li>状态图：<br><img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/16.png?raw=true" alt="状态图"></li>
+<h3 id="JK锁存器"><a href="#JK锁存器" class="headerlink" title="JK锁存器"></a><em>JK锁存器</em></h3><h2 id="JK锁存器与D触发器的区别：后者无法做到保持原态（CP-1时）；前者增加两条反馈线，把R改为K，S改名为J→没有约束条件，把RS＝-11的无效状态变为JK触发器的翻转（计数）-功能-CP-0时，保持原态-CP-1时，由J、K决定状态-特性表：-特性方程：-状态图："><a href="#JK锁存器与D触发器的区别：后者无法做到保持原态（CP-1时）；前者增加两条反馈线，把R改为K，S改名为J→没有约束条件，把RS＝-11的无效状态变为JK触发器的翻转（计数）-功能-CP-0时，保持原态-CP-1时，由J、K决定状态-特性表：-特性方程：-状态图：" class="headerlink" title="+ JK锁存器与D触发器的区别：后者无法做到保持原态（CP&#x3D;1时）；前者增加两条反馈线，把R改为K，S改名为J→没有约束条件，把RS＝ 11的无效状态变为JK触发器的翻转（计数） 功能+ CP&#x3D;0时，保持原态+ CP&#x3D;1时，由J、K决定状态+ 特性表：  + 特性方程：  + 状态图：  "></a><img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/13.png?raw=true" alt="电路结构图"><br>+ JK锁存器与D触发器的区别：后者无法做到保持原态（CP&#x3D;1时）；前者增加两条反馈线，把R改为K，S改名为J→没有约束条件，把RS＝ 11的无效状态变为JK触发器的翻转（计数） 功能<br>+ CP&#x3D;0时，保持原态<br>+ CP&#x3D;1时，由J、K决定状态<br>+ 特性表：<br>  <img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/14.png?raw=true" alt="特性表"><br>+ 特性方程：<br>  <img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/15.png?raw=true" alt="特性方程"><br>+ 状态图：<br>  <img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/16.png?raw=true" alt="状态图"></h2><h2 id="2-有限状态机"><a href="#2-有限状态机" class="headerlink" title="2.有限状态机"></a>2.有限状态机</h2><h3 id="状态编码方式"><a href="#状态编码方式" class="headerlink" title="状态编码方式"></a><em>状态编码方式</em></h3><ul>
+<li>二进制编码：采用log<sub>2</sub>N个触发器来表达N个状态→可能产生毛刺</li>
+<li>格雷编码：触发器数量同上，但编码方式不同：G(x)&#x3D;x^(x&#x2F;2)</li>
+<li>独热码编码：采用N个触发器来表达N个状态<br><img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/20.png?raw=true" alt="三种编码方式比较图"></li>
 </ul>
-<h2 id="2-有限状态机"><a href="#2-有限状态机" class="headerlink" title="2.有限状态机"></a>2.有限状态机</h2><p>（未完待续）</p>
+<h3 id="Moore型有限状态机"><a href="#Moore型有限状态机" class="headerlink" title="Moore型有限状态机"></a><em>Moore型有限状态机</em></h3><h2 id="输出只与当前状态有关，与外部输入无关-Mealy型有限状态机-输出与当前状态和外部输入均有关-有限状态机设计步骤-分析设计要求，列出全部的可能状态-根据上述的状态逐个对其进行分析，画出状态图-根据状态图列出状态转换表-根据状态转换表写出次态逻辑表达式和输出逻辑表达式-根据逻辑表达式写出逻辑图"><a href="#输出只与当前状态有关，与外部输入无关-Mealy型有限状态机-输出与当前状态和外部输入均有关-有限状态机设计步骤-分析设计要求，列出全部的可能状态-根据上述的状态逐个对其进行分析，画出状态图-根据状态图列出状态转换表-根据状态转换表写出次态逻辑表达式和输出逻辑表达式-根据逻辑表达式写出逻辑图" class="headerlink" title="+ 输出只与当前状态有关，与外部输入无关### Mealy型有限状态机+ 输出与当前状态和外部输入均有关### 有限状态机设计步骤+ 分析设计要求，列出全部的可能状态+ 根据上述的状态逐个对其进行分析，画出状态图+ 根据状态图列出状态转换表+ 根据状态转换表写出次态逻辑表达式和输出逻辑表达式+ 根据逻辑表达式写出逻辑图"></a><img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/21.png?raw=true" alt="概念图"><br>+ 输出只与当前状态有关，与外部输入无关<br>### <em>Mealy型有限状态机</em><br><img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/22.png?raw=true" alt="概念图"><br>+ 输出与当前状态和外部输入均有关<br>### <em>有限状态机设计步骤</em><br>+ 分析设计要求，列出全部的可能状态<br>+ 根据上述的状态逐个对其进行分析，画出状态图<br>+ 根据状态图列出状态转换表<br>+ 根据状态转换表写出次态逻辑表达式和输出逻辑表达式<br>+ 根据逻辑表达式写出逻辑图</h2><h2 id="3-时序逻辑电路设计分析"><a href="#3-时序逻辑电路设计分析" class="headerlink" title="3.时序逻辑电路设计分析"></a>3.时序逻辑电路设计分析</h2><h3 id="数据寄存器"><a href="#数据寄存器" class="headerlink" title="数据寄存器"></a><em>数据寄存器</em></h3><ul>
+<li>四位二进制数寄存器CT74175<br><img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/23.png?raw=true" alt="示意图"></li>
+</ul>
+<h3 id="移位寄存器-移存器"><a href="#移位寄存器-移存器" class="headerlink" title="移位寄存器(移存器)"></a><em>移位寄存器(移存器)</em></h3><ul>
+<li>描述：具有移位功能的寄存器→每来一个时钟脉冲，寄存器中的数据就向左或向右移动一位</li>
+</ul>
+<h4 id="四位右移移位寄存器"><a href="#四位右移移位寄存器" class="headerlink" title="四位右移移位寄存器"></a>四位右移移位寄存器</h4><p><img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/24.png?raw=true" alt="电路结构"></p>
+<ul>
+<li>串入并出：经过4个周期，串行输入的4个数据全部进入寄存器，通过Q<sub>0</sub>~Q<sub>3</sub>并行输出→实现串并转换</li>
+<li>串入串出：把最右边的触发器的输出作为电路的输出。经过4个周期后，Q<sub>3</sub>开始输出4个数据→实现延迟输出<blockquote>
+<p>此种工作方式下，每个触发器的输出波形相同，但是后级触发器的输出比其前级输出慢一个周期</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="四位串行输入双向移位寄存器"><a href="#四位串行输入双向移位寄存器" class="headerlink" title="四位串行输入双向移位寄存器"></a>四位串行输入双向移位寄存器</h4><p><img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/25.png?raw=tru" alt="电路结构"></p>
+<ul>
+<li>工作原理：S&#x3D;0(1)，往左(右)移；S<sub>R</sub>：右移串行输入端；S<sub>L</sub>：左移串行输入端<blockquote>
+<p><img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/26.png?raw=tru" alt="逻辑表达式"></p>
+</blockquote>
+</li>
+<li>S&#x3D;1时，为右移移位寄存器：功能同上</li>
+<li>S&#x3D;0时，为左移移位寄存器，功能同上，方向相反<blockquote>
+<p>串入并出→串转并输出<br>串入串出→延迟输出<br>并入串出→并转串输出<br>并入并出→数据预置</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="移位寄存器的拓展"><a href="#移位寄存器的拓展" class="headerlink" title="移位寄存器的拓展"></a>移位寄存器的拓展</h4><p><img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/27.png?raw=tru" alt="示意图"></p>
+<h3 id="计数器"><a href="#计数器" class="headerlink" title="计数器"></a><em>计数器</em></h3><h4 id="同步计数器"><a href="#同步计数器" class="headerlink" title="同步计数器"></a>同步计数器</h4><blockquote>
+<p>计数器有许多不同的分类方式：</p>
+<ul>
+<li>时钟方式→根据触发器时钟端CP的连接方式分为：同步计数器和异步计数器</li>
+<li>计数方式→二进制计数器、十进制计数器、M进制计数器</li>
+<li>状态变化→加法计数器、减法计数器、加减法计数器</li>
+</ul>
+</blockquote>
+<h5 id="①十进制同步加法计数器"><a href="#①十进制同步加法计数器" class="headerlink" title="①十进制同步加法计数器"></a>①十进制同步加法计数器</h5><ul>
+<li>电路结构：<br> <img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/28.png?raw=tru" alt="电路结构"></li>
+<li>方程式：<br><img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/29.png?raw=tru" alt="方程式"></li>
+<li>状态转换表<br><img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/30.png?raw=tru" alt="状态转换表"></li>
+<li>逻辑表达式<br><img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/31.png?raw=tru" alt="逻辑表达式"><blockquote>
+<ul>
+<li>方程式中J<sub>1</sub>的设计体现了十进制的计数方式：通过观察状态转换表发现从1010~1111都是无效状态，如果单纯地将J<sub>1</sub>&#x3D;Q<sub>0</sub>(同K一样)，那么当遇到1111时，计数器仍会工作，这就产生了矛盾</li>
+<li>本机器十进制的意思是每10次时钟脉冲就记录一次</li>
+<li>注意：这里的有效沿为下降沿</li>
+<li>其工作频率只与一个触发器的时钟到输出的传输延迟有关，所有其工作频率比异步计数器高</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h5 id="②二进制同步加法计数器"><a href="#②二进制同步加法计数器" class="headerlink" title="②二进制同步加法计数器"></a>②二进制同步加法计数器</h5><ul>
+<li>电路结构：<br> <img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/32.png?raw=tru" alt="电路结构"></li>
+<li>方程式：<br><img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/33.png?raw=tru" alt="方程式"></li>
+<li>状态转换表<br><img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/34.png?raw=tru" alt="状态转换表"></li>
+<li>逻辑表达式<br><img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/33.png?raw=tru" alt="逻辑表达式"><blockquote>
+<ul>
+<li>本机器二进制的意思是每16次时钟脉冲就记录一次</li>
+<li>二进制加法计数器的状态循环个数为：2<sup>n</sup>(n时触发器的级数)</li>
+<li>Q<sub>0</sub>、Q<sub>1</sub>、Q<sub>2</sub>、Q<sub>3</sub>的周期分别是2、4、8、16，即它们对CP波形进行了2、4、8、16的分频，因此二进制计数器也被称作分频器<br><img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/35.png?raw=tru" alt="时序图与状态图"></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="异步计数器"><a href="#异步计数器" class="headerlink" title="异步计数器"></a>异步计数器</h4><p>(未完待续)</p>
 
                 
             </div>
@@ -1074,7 +1133,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">5k</span>&nbsp;字
+                class="white-color">5.9k</span>&nbsp;字
             
             
             
