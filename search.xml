@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>继承</title>
+      <link href="/2023/10/12/ji-cheng/"/>
+      <url>/2023/10/12/ji-cheng/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-理解继承（几句很棒的话）"><a href="#1-理解继承（几句很棒的话）" class="headerlink" title="1.理解继承（几句很棒的话）"></a>1.理解继承（几句很棒的话）</h1><ul><li>继承是在保留原有类的数据成员和成员函数的基础上，派生出新类，新的类可以有某种程度的变异；</li><li>通过继承，新类自动具有了原有类的成员属性和成员方法，因而只需定义原有类型没有的成员属性和成员方法。通过继承和派生形成的类族，反映了面向对象问题域、主题等概念</li><li>子类拥有父类的所有属性和方法，只不过父类的私有属性和方法，子类是无法直接访问到</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 面向对象的三大特称 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>树状数组</title>
       <link href="/2023/10/11/shu-zhuang-shu-zu/"/>
       <url>/2023/10/11/shu-zhuang-shu-zu/</url>
