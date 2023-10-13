@@ -529,9 +529,9 @@
 <li>时间短，但是实现复杂</li>
 </ul>
 <h3 id="数值比较器"><a href="#数值比较器" class="headerlink" title="数值比较器"></a><em>数值比较器</em></h3><h4 id="①1位比较器"><a href="#①1位比较器" class="headerlink" title="①1位比较器"></a>①1位比较器</h4><ul>
-<li>F<sub>A&gt;B</sub> &#x3D; A$\overline{\text{B}}$ ;</li>
-<li>F<sub>A&lt;B</sub> &#x3D;  B$\overline{\text{A}}$ ; </li>
-<li>F<sub>A&#x3D;B</sub> &#x3D; AB+$\overline{\text{A}}$$\overline{\text{B}}$</li>
+<li>F<sub>A&gt;B</sub> &#x3D; A $\overline{\text{B}}$ ;</li>
+<li>F<sub>A&lt;B</sub> &#x3D;  B $\overline{\text{A}}$ ; </li>
+<li>F<sub>A&#x3D;B</sub> &#x3D; AB+ $\overline{\text{A}}$ $\overline{\text{B}}$</li>
 </ul>
 <h4 id="②4位比较器（7485芯片）"><a href="#②4位比较器（7485芯片）" class="headerlink" title="②4位比较器（7485芯片）"></a>②4位比较器（7485芯片）</h4><ul>
 <li>短路比较：从高位开始比较，如出现不等情况则停止比较，若4位数全部相等，则根据I的初始输入情况（上一级四位数的比较情况）来判断本级四位数的大小情况</li>
@@ -541,7 +541,10 @@
 <li>逻辑功能：与、或</li>
 <li>算术功能：加法→Bnegate&#x3D;0、减法→Bnegate&#x3D;1(Bnegate&#x3D;Binvert*CarryIn)</li>
 <li>比较功能：Less&#x3D;标志位的Set→结果最高位的值</li>
-<li>输出的标志位：ZF→零标志，取最终结果的反$\overline{\text{sum}}$；SF→符号标志，取sum的符号位（也可由此实现比较功能）；CF→进&#x2F;借位标志，取最高位的cout⊕最低位的cin(用于判断无符号数的加减法的溢出)；OF→溢出标志，取cin<sub>n-1</sub>⊕cout<sub>n-1</sub></li>
+<li>输出的标志位：ZF→零标志，取最终结果的反 $\overline{\text{sum}}$；SF→符号标志，取sum的符号位（也可由此实现比较功能）；CF→进&#x2F;借位标志，取最高位的cout⊕最低位的cin(用于判断无符号数的加减法的溢出)；OF→溢出标志，取cin<sub>n-1</sub>⊕cout<sub>n-1</sub></li>
+</ul>
+<ul>
+<li>$cin_{n-1}^{n} $</li>
 </ul>
 <hr>
 <h2 id="3-编码器"><a href="#3-编码器" class="headerlink" title="3.编码器"></a>3.编码器</h2><ul>
