@@ -465,7 +465,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    1.7k
                 </div>
                 
 
@@ -499,26 +499,26 @@
 <li>当时的输出仅由当时的输入决定（速度快）</li>
 </ul>
 <h3 id="组合逻辑电路分析方法"><a href="#组合逻辑电路分析方法" class="headerlink" title="组合逻辑电路分析方法"></a><em>组合逻辑电路分析方法</em></h3><ul>
-<li>根据所给的电路图分析，<strong>从后往前</strong>推出<em><strong>逻辑表达式F</strong></em></li>
-<li>根据电路图逐个枚举写出<em><strong>真值表</strong></em>（若表达式F为最小项标准也可直接写出）</li>
-<li>观察真值表中F取值为“1”的情况对<em><strong>电路功能进行描述</strong></em>（如果表达式为最小项标准也可以由此观察得到结论）</li>
+<li>根据所给的电路图分析，<strong>从后往前</strong>推出<strong><em>逻辑表达式F</em></strong></li>
+<li>根据电路图逐个枚举写出<strong><em>真值表</em></strong>（若表达式F为最小项标准也可直接写出）</li>
+<li>观察真值表中F取值为“1”的情况对<strong><em>电路功能进行描述</em></strong>（如果表达式为最小项标准也可以由此观察得到结论）</li>
 </ul>
 <p>注意：常见的逻辑电路有：<u>三变量奇校验、二进制码转格雷码、异或实现……</u></p>
 <h3 id="组合逻辑电路设计方法"><a href="#组合逻辑电路设计方法" class="headerlink" title="组合逻辑电路设计方法"></a><em>组合逻辑电路设计方法</em></h3><ul>
-<li>将题目描述的功能要求进行<strong>逻辑抽象</strong>：确定输入输出变量的含义，再通过枚举写出<em><strong>真值表</strong></em>（注意可能有在该题意境下<del>无意义</del>的情况）</li>
-<li>由真值表中“1”的情况写出<em><strong>逻辑表达式</strong></em>，再对其进行化简（代数法、卡诺图法、观察法：<u>如某个变量一旦取1则F比取1，则可以把这个变量单列出来</u>）</li>
-<li>根据逻辑表达式F画出<em><strong>电路图</strong></em></li>
+<li>将题目描述的功能要求进行<strong>逻辑抽象</strong>：确定输入输出变量的含义，再通过枚举写出<strong><em>真值表</em></strong>（注意可能有在该题意境下<del>无意义</del>的情况）</li>
+<li>由真值表中“1”的情况写出<strong><em>逻辑表达式</em></strong>，再对其进行化简（代数法、卡诺图法、观察法：<u>如某个变量一旦取1则F比取1，则可以把这个变量单列出来</u>）</li>
+<li>根据逻辑表达式F画出<strong><em>电路图</em></strong></li>
 </ul>
 <hr>
 <h2 id="2-运算电路"><a href="#2-运算电路" class="headerlink" title="2.运算电路"></a>2.运算电路</h2><h3 id="加法器"><a href="#加法器" class="headerlink" title="加法器"></a><em>加法器</em></h3><h4 id="①半加器"><a href="#①半加器" class="headerlink" title="①半加器"></a>①半加器</h4><ul>
 <li>特点描述：不考虑低位进位，考虑高位进位</li>
 <li>输入：两个一位二进制数：A和B</li>
-<li>输出：原位和→S&#x3D;A⊕B，进位数→C&#x3D;A*B</li>
+<li>输出：原位和→S=A⊕B，进位数→C=A*B</li>
 </ul>
 <h4 id="②全加器"><a href="#②全加器" class="headerlink" title="②全加器"></a>②全加器</h4><ul>
 <li>特定描述：考虑低位进位和高位进位</li>
 <li>输入：三个→A,B以及来自低位的进位C’</li>
-<li>输出：原位和→S&#x3D;A⊕B⊕C，进位数→C&#x3D;A<em>B+C’</em>(A⊕B)</li>
+<li>输出：原位和→S=A⊕B⊕C，进位数→C=A<em>B+C’</em>(A⊕B)</li>
 </ul>
 <h4 id="③多位加法器"><a href="#③多位加法器" class="headerlink" title="③多位加法器"></a>③多位加法器</h4><h5 id="串行进位："><a href="#串行进位：" class="headerlink" title="串行进位："></a>串行进位：</h5><ul>
 <li>对于每一级的C，都要先求出上一级的进位C’</li>
@@ -529,9 +529,9 @@
 <li>时间短，但是实现复杂</li>
 </ul>
 <h3 id="数值比较器"><a href="#数值比较器" class="headerlink" title="数值比较器"></a><em>数值比较器</em></h3><h4 id="①1位比较器"><a href="#①1位比较器" class="headerlink" title="①1位比较器"></a>①1位比较器</h4><ul>
-<li>F<sub>A&gt;B</sub> &#x3D; A $\overline{\text{B}}$ ;</li>
-<li>F<sub>A&lt;B</sub> &#x3D;  B $\overline{\text{A}}$ ; </li>
-<li>F<sub>A&#x3D;B</sub> &#x3D; AB+ $\overline{\text{A}}$ $\overline{\text{B}}$</li>
+<li>F<sub>A&gt;B</sub> = A $\overline{\text{B}}$ ;</li>
+<li>F<sub>A&lt;B</sub> =  B $\overline{\text{A}}$ ; </li>
+<li>F<sub>A=B</sub> = AB+ $\overline{\text{A}}$ $\overline{\text{B}}$</li>
 </ul>
 <h4 id="②4位比较器（7485芯片）"><a href="#②4位比较器（7485芯片）" class="headerlink" title="②4位比较器（7485芯片）"></a>②4位比较器（7485芯片）</h4><ul>
 <li>短路比较：从高位开始比较，如出现不等情况则停止比较，若4位数全部相等，则根据I的初始输入情况（上一级四位数的比较情况）来判断本级四位数的大小情况</li>
@@ -539,15 +539,11 @@
 </ul>
 <h3 id="ALU"><a href="#ALU" class="headerlink" title="ALU"></a><em>ALU</em></h3><ul>
 <li>逻辑功能：与、或</li>
-<li>算术功能：加法→Bnegate&#x3D;0、减法→Bnegate&#x3D;1(Bnegate&#x3D;Binvert*CarryIn)</li>
-<li>比较功能：Less&#x3D;标志位的Set→结果最高位的值</li>
-<li>输出的标志位：ZF→零标志，取最终结果的反 $\overline{\text{sum}}$；SF→符号标志，取sum的符号位（也可由此实现比较功能）；CF→进&#x2F;借位标志，取最高位的cout⊕最低位的cin(用于判断无符号数的加减法的溢出)；OF→溢出标志，取cin<sub>n-1</sub>⊕cout<sub>n-1</sub></li>
+<li>算术功能：加法→Bnegate=0、减法→Bnegate=1(Bnegate=Binvert*CarryIn)</li>
+<li>比较功能：Less=标志位的Set→结果最高位的值</li>
+<li>输出的标志位：ZF→零标志，取最终结果的反 $\overline{\text{sum}}$；SF→符号标志，取sum的符号位（也可由此实现比较功能）；CF→进/借位标志，取最高位的cout⊕最低位的cin(用于判断无符号数的加减法的溢出)；OF→溢出标志，取cin<sub>n-1</sub>⊕cout<sub>n-1</sub></li>
 </ul>
-<ul>
-<li>$cin_{n-1}^{n} $</li>
-</ul>
-<hr>
-<h2 id="3-编码器"><a href="#3-编码器" class="headerlink" title="3.编码器"></a>3.编码器</h2><ul>
+<h2 id="cin-n-1-n"><a href="#cin-n-1-n" class="headerlink" title="- $cin_{n-1}^{n} $"></a>- $cin_{n-1}^{n} $</h2><h2 id="3-编码器"><a href="#3-编码器" class="headerlink" title="3.编码器"></a>3.编码器</h2><ul>
 <li>将数字信号转换为二进制编码</li>
 <li>常见的编码器只允许一个输入信号有效，否则会发生混乱</li>
 </ul>
@@ -601,7 +597,7 @@
 <li>原因：门电路和导线传输的延时</li>
 </ul>
 <h3 id="竞争冒险的判断"><a href="#竞争冒险的判断" class="headerlink" title="竞争冒险的判断"></a><em>竞争冒险的判断</em></h3><ul>
-<li>代数法：当其他变量取特定的值时，可以满足F &#x3D; A+$\overline{\text{A}}$（0冒险）或F &#x3D; A*$\overline{\text{A}}$（1冒险）</li>
+<li>代数法：当其他变量取特定的值时，可以满足F = A+$\overline{\text{A}}$（0冒险）或F = A*$\overline{\text{A}}$（1冒险）</li>
 <li>卡诺图法：在逻辑函数的卡诺图中，函数的每个与项对应卡诺图上的一个卡诺圈，若两个卡诺圈相切，则相切处存在冒险</li>
 </ul>
 <h3 id="竞争冒险的消除"><a href="#竞争冒险的消除" class="headerlink" title="竞争冒险的消除"></a><em>竞争冒险的消除</em></h3><ul>
@@ -1065,6 +1061,13 @@
 </main>
 
 
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
 
 
     <footer class="page-footer bg-color">
@@ -1136,7 +1139,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">6.1k</span>&nbsp;字
+                class="white-color">6k</span>&nbsp;字
             
             
             

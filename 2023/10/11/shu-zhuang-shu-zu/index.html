@@ -465,7 +465,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    619
+                    614
                 </div>
                 
 
@@ -499,78 +499,60 @@
 <hr>
 <h2 id="2-一维树状数组"><a href="#2-一维树状数组" class="headerlink" title="2.一维树状数组"></a>2.一维树状数组</h2><h3 id="管理数组c-长度分配"><a href="#管理数组c-长度分配" class="headerlink" title="管理数组c[]长度分配"></a><em>管理数组c[]长度分配</em></h3><ul>
 <li>引入lowbit(x)函数：x&amp;（-x<sub>补码</sub>）</li>
-<li>c[i]包含的数据个数 &#x3D; lowbit(i)</li>
-</ul>
-<h3 id="前驱和后继"><a href="#前驱和后继" class="headerlink" title="前驱和后继"></a><em>前驱和后继</em></h3><ul>
+<li>c[i]包含的数据个数 = lowbit(i)<h3 id="前驱和后继"><a href="#前驱和后继" class="headerlink" title="前驱和后继"></a><em>前驱和后继</em></h3></li>
 <li>c[i]的直接前驱：c[i]左侧紧邻的子树的根→c[i-lowbit(i)]</li>
 <li>c[i]的直接后驱：c[i]的父节点→c[i+lowbit(i)]</li>
 <li>c[i]的前驱：c[i]的直接前驱、直接前驱的直接前驱……→c[i]左侧所有子树的根</li>
-<li>c[i]的后继：c[i]的直接后继、直接后继的直接后继……→c[i]的所有祖先</li>
-</ul>
-<h3 id="前缀和查询算法"><a href="#前缀和查询算法" class="headerlink" title="前缀和查询算法"></a><em>前缀和查询算法</em></h3><pre><code>int sum(int i)&#123;
-    int sum=0;
-    while(i&gt;0)&#123;
-        sum+=c[i];
-        i-=lowbit(i);
-    &#125;
-    return sum;
+<li>c[i]的后继：c[i]的直接后继、直接后继的直接后继……→c[i]的所有祖先<h3 id="前缀和查询算法"><a href="#前缀和查询算法" class="headerlink" title="前缀和查询算法"></a><em>前缀和查询算法</em></h3><pre><code>int sum(int i)&#123;
+  int sum=0;
+  while(i&gt;0)&#123;
+      sum+=c[i];
+      i-=lowbit(i);
+  &#125;
+  return sum;
 &#125;
-</code></pre>
-<h3 id="点更新算法"><a href="#点更新算法" class="headerlink" title="点更新算法"></a><em>点更新算法</em></h3><ul>
-<li>若a[i]+&#x3D;delta,则只需把c[i]及其祖先节点都加上delta即可</li>
-</ul>
-<pre><code>void add(int i,int delta)&#123;
-    while(i&lt;=n)&#123;
-        c[i]+=delta;
-        i+=lowbit(i);
-    &#125;
+</code></pre><h3 id="点更新算法"><a href="#点更新算法" class="headerlink" title="点更新算法"></a><em>点更新算法</em></h3></li>
+<li>若a[i]+=delta,则只需把c[i]及其祖先节点都加上delta即可<pre><code>void add(int i,int delta)&#123;
+  while(i&lt;=n)&#123;
+      c[i]+=delta;
+      i+=lowbit(i);
+  &#125;
 &#125;
-</code></pre>
-<blockquote>
+</code></pre><blockquote>
 <p>树状数组的下标需要从1开始，因为lowbit(0)会陷入死循环</p>
-</blockquote>
 <h3 id="区间和查询算法"><a href="#区间和查询算法" class="headerlink" title="区间和查询算法"></a><em>区间和查询算法</em></h3><pre><code>int sum_plus(int i,int j)&#123;
-    return sum(j)-sum(i-1);
+  return sum(j)-sum(i-1);
 &#125;
-</code></pre>
-<h3 id="建立树状数组"><a href="#建立树状数组" class="headerlink" title="建立树状数组"></a><em>建立树状数组</em></h3><pre><code>for(i=0;i&lt;n;i++)&#123;
-    add(i+1,a[i]);
+</code></pre><h3 id="建立树状数组"><a href="#建立树状数组" class="headerlink" title="建立树状数组"></a><em>建立树状数组</em></h3><pre><code>for(i=0;i&lt;n;i++)&#123;
+  add(i+1,a[i]);
 &#125;
-</code></pre>
-<blockquote>
-<p>把建立的过程看成是n次点更新即可</p>
+</code></pre><p>把建立的过程看成是n次点更新即可</p>
 </blockquote>
+</li>
+</ul>
 <hr>
 <h2 id="3-二维树状数组"><a href="#3-二维树状数组" class="headerlink" title="3.二维树状数组"></a>3.二维树状数组</h2><h3 id="查询前缀和"><a href="#查询前缀和" class="headerlink" title="查询前缀和"></a><em>查询前缀和</em></h3><ul>
-<li>实际上是求矩阵(1,1)到(x,y)的区间和</li>
-</ul>
-<pre><code>int sum(int x,int y)&#123;
-    int sum=0;
-    for(i=x;i&gt;=1;i-=lowbit(i))&#123;
-        for(j=y;j&gt;=1;j-=lowbit(j))&#123;
-            sum+=c[i][j];
-        &#125;
-    &#125;
-    return sum;
+<li>实际上是求矩阵(1,1)到(x,y)的区间和<pre><code>int sum(int x,int y)&#123;
+  int sum=0;
+  for(i=x;i&gt;=1;i-=lowbit(i))&#123;
+      for(j=y;j&gt;=1;j-=lowbit(j))&#123;
+          sum+=c[i][j];
+      &#125;
+  &#125;
+  return sum;
 &#125;
-</code></pre>
-<h3 id="点更新"><a href="#点更新" class="headerlink" title="点更新"></a><em>点更新</em></h3><ul>
-<li>若a[x][y]+&#x3D;delta,则其所有的父节点都加上delta</li>
-</ul>
-<pre><code>void add(int x,int y,int delta)&#123;
-    for(i=x;i&lt;=n;i+=lowbit(i))&#123;
-        for(j=y;j&lt;=n;j+=lowbit(j))&#123;
-            c[i][j]+=delta;
-        &#125;
-    &#125;
+</code></pre><h3 id="点更新"><a href="#点更新" class="headerlink" title="点更新"></a><em>点更新</em></h3></li>
+<li>若a[x][y]+=delta,则其所有的父节点都加上delta<pre><code>void add(int x,int y,int delta)&#123;
+  for(i=x;i&lt;=n;i+=lowbit(i))&#123;
+      for(j=y;j&lt;=n;j+=lowbit(j))&#123;
+          c[i][j]+=delta;
+      &#125;
+  &#125;
 &#125;
-</code></pre>
-<h3 id="查询区间和"><a href="#查询区间和" class="headerlink" title="查询区间和"></a><em>查询区间和</em></h3><p><img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/19.png?raw=true" alt="示意图"></p>
-<pre><code>int sum_plus(int x1,int y1,int x2,int y2)&#123;
-    return sum(x2,y2)-sum(x1-1,y2)-sum(x2,y1-1)+sum(x1-1,y1-1)
+</code></pre><h3 id="查询区间和"><a href="#查询区间和" class="headerlink" title="查询区间和"></a><em>查询区间和</em></h3><img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/19.png?raw=true" alt="示意图"><pre><code>int sum_plus(int x1,int y1,int x2,int y2)&#123;
+  return sum(x2,y2)-sum(x1-1,y2)-sum(x2,y1-1)+sum(x1-1,y1-1)
 &#125;
-</code></pre>
-<h3 id="建立树状数组-1"><a href="#建立树状数组-1" class="headerlink" title="建立树状数组"></a><em>建立树状数组</em></h3><ul>
+</code></pre><h3 id="建立树状数组-1"><a href="#建立树状数组-1" class="headerlink" title="建立树状数组"></a><em>建立树状数组</em></h3></li>
 <li>同上</li>
 </ul>
 
@@ -1099,7 +1081,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">6.1k</span>&nbsp;字
+                class="white-color">6k</span>&nbsp;字
             
             
             
