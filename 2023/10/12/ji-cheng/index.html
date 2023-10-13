@@ -499,7 +499,6 @@
 </ul>
 <hr>
 <h2 id="2-子类构造器"><a href="#2-子类构造器" class="headerlink" title="2.子类构造器"></a>2.子类构造器</h2><ul>
-<li>父类的构造方法不能被子类直接继承</li>
 <li>子类的构造方法(无论是否有参),若无显性调用，则会默认调用父类的无参构造方法；否则一般要对父类进行显性调用<blockquote>
 <ul>
 <li>子类在创建对象时，利用父类的构造方法完成继承部分的创建，利用另写的构造方法完成拓展部分的创建</li>
@@ -507,6 +506,7 @@
 </ul>
 </blockquote>
 </li>
+<li>父类的构造方法不能被子类直接继承</li>
 </ul>
 <hr>
 <h2 id="3-继承中的权限问题-此处不讨论public"><a href="#3-继承中的权限问题-此处不讨论public" class="headerlink" title="3.继承中的权限问题(此处不讨论public)"></a>3.继承中的权限问题(此处不讨论public)</h2><h3 id="Private"><a href="#Private" class="headerlink" title="Private"></a><em>Private</em></h3><ul>
@@ -516,11 +516,11 @@
 </li>
 <li>对于私有成员，真的只能远观而不可亵玩焉吗？非也非也！我们可以在父类中设置对应的public的Setter和Getter来访问这些不可”访问”的成员<h3 id="Default"><a href="#Default" class="headerlink" title="Default"></a><em>Default</em></h3></li>
 <li>父类中默认的成员可以被同一个包中的子类中的实例对象直接访问，但不同包中是不行的<h3 id="Protected"><a href="#Protected" class="headerlink" title="Protected"></a><em>Protected</em></h3></li>
-<li>若父子类位于同一个包中，则与default一致</li>
 <li>若位于不同包中，子类的实例对象可以访问protected成员，但是父类的实例对象不行<blockquote>
 <p>这里访问的protected成员只能是改子类自己继承的，其他比如：父类实例对象的protected成员和其他子类的共同protected成员都是不能访问的<br>若这个protected成员是静态的，则没有上述”亲自继承”的限制</p>
 </blockquote>
 </li>
+<li>若父子类位于同一个包中，则与default一致</li>
 </ul>
 <hr>
 <h2 id="4-向上转型-重写与覆盖"><a href="#4-向上转型-重写与覆盖" class="headerlink" title="4.向上转型(重写与覆盖)"></a>4.向上转型(重写与覆盖)</h2><ul>
