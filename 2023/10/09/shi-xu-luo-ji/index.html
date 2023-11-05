@@ -551,7 +551,7 @@
 <hr>
 <h2 id="2-有限状态机"><a href="#2-有限状态机" class="headerlink" title="2.有限状态机"></a>2.有限状态机</h2><h3 id="状态编码方式"><a href="#状态编码方式" class="headerlink" title="状态编码方式"></a><em>状态编码方式</em></h3><ul>
 <li>二进制编码：采用log<sub>2</sub>N个触发器来表达N个状态→可能产生毛刺</li>
-<li>格雷编码：触发器数量同上，但编码方式不同：G(x)=x^(x/2)</li>
+<li>格雷编码：触发器数量同上，但编码方式不同：G(x)=x⊕(x/2)</li>
 <li>独热码编码：采用N个触发器来表达N个状态<br><img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/20.png?raw=true" alt="三种编码方式比较图"><h3 id="Moore型有限状态机"><a href="#Moore型有限状态机" class="headerlink" title="Moore型有限状态机"></a><em>Moore型有限状态机</em></h3><img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/21.png?raw=true" alt="概念图"></li>
 <li>输出只与当前状态有关，与外部输入无关<h3 id="Mealy型有限状态机"><a href="#Mealy型有限状态机" class="headerlink" title="Mealy型有限状态机"></a><em>Mealy型有限状态机</em></h3><img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/22.png?raw=true" alt="概念图"></li>
 <li>输出与当前状态和外部输入均有关<h3 id="有限状态机设计步骤"><a href="#有限状态机设计步骤" class="headerlink" title="有限状态机设计步骤"></a><em>有限状态机设计步骤</em></h3></li>
