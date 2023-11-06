@@ -4,23 +4,48 @@
   
     
     <entry>
-      <title>test</title>
+      <title>MIPS小结</title>
       <link href="/2023/11/06/test/"/>
       <url>/2023/11/06/test/</url>
       
-        <content type="html"><![CDATA[<h1 id="1-test"><a href="#1-test" class="headerlink" title="1.test"></a>1.test</h1><p>check</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="MIPS"><a href="#MIPS" class="headerlink" title="MIPS"></a>MIPS</h1><h2 id="1-数据的声明（宏定义）"><a href="#1-数据的声明（宏定义）" class="headerlink" title="1.数据的声明（宏定义）"></a>1.数据的声明（宏定义）</h2><ul><li>格式：  name:  .storage_type  value <pre><code>var : .word  3           #定义为子类型，初始值为3array :  .byte  &#39;a&#39;,&#39;b&#39;  #定义为字节类型，初始值为两个字符a和barray :  .space 40       #定义了一个数组，有40字节大小，可以存储10个整数或者40个字符string : .asciiz  &quot;hello world\n&quot;  #定义为字符串，字符串以null结尾</code></pre></li></ul><hr><h2 id="2-syscall指令"><a href="#2-syscall指令" class="headerlink" title="2.syscall指令"></a>2.syscall指令</h2><p><img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/36.png?raw=true" alt="指令参考图"></p><h2 id="gt-v0寄存器存储操作码，a0存储数据"><a href="#gt-v0寄存器存储操作码，a0存储数据" class="headerlink" title="&gt; v0寄存器存储操作码，a0存储数据"></a>&gt; v0寄存器存储操作码，a0存储数据</h2><h2 id="3-标签label"><a href="#3-标签label" class="headerlink" title="3.标签label"></a>3.标签label</h2><h2 id="标签名存储的为特点代码段的起始位置，在跳转指令与分支指令中可以简便地跳转。所以利用标签可以方便我们构造条件语句和循环语句（细节见后文）"><a href="#标签名存储的为特点代码段的起始位置，在跳转指令与分支指令中可以简便地跳转。所以利用标签可以方便我们构造条件语句和循环语句（细节见后文）" class="headerlink" title="+ 标签名存储的为特点代码段的起始位置，在跳转指令与分支指令中可以简便地跳转。所以利用标签可以方便我们构造条件语句和循环语句（细节见后文）"></a>+ 标签名存储的为特点代码段的起始位置，在跳转指令与分支指令中可以简便地跳转。所以利用标签可以方便我们构造条件语句和循环语句（细节见后文）</h2><h2 id="4-循环"><a href="#4-循环" class="headerlink" title="4.循环"></a>4.循环</h2><pre><code>      li $t0 100  # $t0存储循环次数loop: do sth      addi $t0,$t0,-1   # i--      bgtz $t0,loop     # if $t0&gt;0,继续执行循环操作      j loop_endloop_end:</code></pre><hr><h2 id="5-数组"><a href="#5-数组" class="headerlink" title="5.数组"></a>5.数组</h2><pre><code>.dataarray: .space 40           # 存储这些数需要用到数组，数组需要使用 10 * 4 = 40 字节                           # 一个 int 整数需要占用 4 个字节，需要存储 10 个 int 整数                           # 因此，array[0] 的地址为 0x00，array[1] 的地址为 0x04                           # array[2] 的地址为 0x08，以此类推。str:   .asciiz &quot;The numbers are:\n&quot;space: .asciiz &quot; &quot;.textli $v0,5syscall                    # 输入一个整数move $s0, $v0              # $s0 is nli $t0, 0                  # $t0 循环变量loop_in:beq $t0, $s0, loop_in_end  # $t0 == $s0 的时候跳出循环li $v0, 5syscall                    # 输入一个整数sll $t1, $t0, 2            # $t1 = $t0 &lt;&lt; 2，即 $t1 = $t0 * 4sw $v0, array($t1)         # 把输入的数存入地址为 array + $t1 的内存中addi $t0, $t0, 1           # $t0 = $t0 + 1j loop_in                  # 跳转到 loop_inloop_in_end:la $a0, strli $v0, 4syscall                    # 输出提示信息li $t0, 0loop_out:beq $t0, $s0, loop_out_endsll $t1, $t0, 2            # $t1 = $t0 &lt;&lt; 2，即 $t1 = $t0 * 4lw $a0, array($t1)         # 把内存中地址为 array + $t1 的数取出到 $a0 中li $v0, 1syscall                    # 输出 $a0la $a0, spaceli $v0, 4syscall                    # 输出一个空格addi $t0, $t0, 1j loop_outloop_out_end:li $v0, 10syscall                    # 结束程序</code></pre><ul><li>总体思路为先利用space定义数组大小，接着利用循环逐个读入数组元素，其中array[i]表示为array(t1),t1=4*i</li><li>利用lw来存储数组元素，利用sw来访问数组元素</li></ul><hr><h2 id="6-宏定义"><a href="#6-宏定义" class="headerlink" title="6.宏定义"></a>6.宏定义</h2><ul><li>不带参数的宏定义：<pre><code>.macro macro_name# 代码段.end_macro</code></pre></li><li>带参数的宏定义：<pre><code>.macro macro_name(%parameter1, %parameter2, ...)# 代码段.end_macro</code></pre></li></ul>]]></content>
       
       
       <categories>
           
-          <category> test </category>
+          <category> 计组 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 计组 </tag>
+            <tag> MIPS指令集 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MIPS小结</title>
+      <link href="/2023/11/06/mips/"/>
+      <url>/2023/11/06/mips/</url>
+      
+        <content type="html"><![CDATA[<h1 id="MIPS"><a href="#MIPS" class="headerlink" title="MIPS"></a>MIPS</h1><h2 id="1-数据的声明（宏定义）"><a href="#1-数据的声明（宏定义）" class="headerlink" title="1.数据的声明（宏定义）"></a>1.数据的声明（宏定义）</h2><ul><li>格式：  name:  .storage_type  value <pre><code>var : .word  3           #定义为子类型，初始值为3array :  .byte  &#39;a&#39;,&#39;b&#39;  #定义为字节类型，初始值为两个字符a和barray :  .space 40       #定义了一个数组，有40字节大小，可以存储10个整数或者40个字符string : .asciiz  &quot;hello world\n&quot;  #定义为字符串，字符串以null结尾</code></pre></li></ul><hr><h2 id="2-syscall指令"><a href="#2-syscall指令" class="headerlink" title="2.syscall指令"></a>2.syscall指令</h2><p><img src="https://github.com/BUAA-yangyang/BUAA-yangyang.github.io/blob/master/medias/banner/36.png?raw=true" alt="指令参考图"></p><h2 id="gt-v0寄存器存储操作码，a0存储数据"><a href="#gt-v0寄存器存储操作码，a0存储数据" class="headerlink" title="&gt; v0寄存器存储操作码，a0存储数据"></a>&gt; v0寄存器存储操作码，a0存储数据</h2><h2 id="3-标签label"><a href="#3-标签label" class="headerlink" title="3.标签label"></a>3.标签label</h2><h2 id="标签名存储的为特点代码段的起始位置，在跳转指令与分支指令中可以简便地跳转。所以利用标签可以方便我们构造条件语句和循环语句（细节见后文）"><a href="#标签名存储的为特点代码段的起始位置，在跳转指令与分支指令中可以简便地跳转。所以利用标签可以方便我们构造条件语句和循环语句（细节见后文）" class="headerlink" title="+ 标签名存储的为特点代码段的起始位置，在跳转指令与分支指令中可以简便地跳转。所以利用标签可以方便我们构造条件语句和循环语句（细节见后文）"></a>+ 标签名存储的为特点代码段的起始位置，在跳转指令与分支指令中可以简便地跳转。所以利用标签可以方便我们构造条件语句和循环语句（细节见后文）</h2><h2 id="4-循环"><a href="#4-循环" class="headerlink" title="4.循环"></a>4.循环</h2><pre><code>      li $t0 100  # $t0存储循环次数loop: do sth      addi $t0,$t0,-1   # i--      bgtz $t0,loop     # if $t0&gt;0,继续执行循环操作      j loop_endloop_end:</code></pre><hr><h2 id="5-数组"><a href="#5-数组" class="headerlink" title="5.数组"></a>5.数组</h2><pre><code>.dataarray: .space 40           # 存储这些数需要用到数组，数组需要使用 10 * 4 = 40 字节                           # 一个 int 整数需要占用 4 个字节，需要存储 10 个 int 整数                           # 因此，array[0] 的地址为 0x00，array[1] 的地址为 0x04                           # array[2] 的地址为 0x08，以此类推。str:   .asciiz &quot;The numbers are:\n&quot;space: .asciiz &quot; &quot;.textli $v0,5syscall                    # 输入一个整数move $s0, $v0              # $s0 is nli $t0, 0                  # $t0 循环变量loop_in:beq $t0, $s0, loop_in_end  # $t0 == $s0 的时候跳出循环li $v0, 5syscall                    # 输入一个整数sll $t1, $t0, 2            # $t1 = $t0 &lt;&lt; 2，即 $t1 = $t0 * 4sw $v0, array($t1)         # 把输入的数存入地址为 array + $t1 的内存中addi $t0, $t0, 1           # $t0 = $t0 + 1j loop_in                  # 跳转到 loop_inloop_in_end:la $a0, strli $v0, 4syscall                    # 输出提示信息li $t0, 0loop_out:beq $t0, $s0, loop_out_endsll $t1, $t0, 2            # $t1 = $t0 &lt;&lt; 2，即 $t1 = $t0 * 4lw $a0, array($t1)         # 把内存中地址为 array + $t1 的数取出到 $a0 中li $v0, 1syscall                    # 输出 $a0la $a0, spaceli $v0, 4syscall                    # 输出一个空格addi $t0, $t0, 1j loop_outloop_out_end:li $v0, 10syscall                    # 结束程序</code></pre><ul><li>总体思路为先利用space定义数组大小，接着利用循环逐个读入数组元素，其中array[i]表示为array(t1),t1=4*i</li><li>利用lw来存储数组元素，利用sw来访问数组元素</li></ul><hr><h2 id="6-宏定义"><a href="#6-宏定义" class="headerlink" title="6.宏定义"></a>6.宏定义</h2><ul><li>不带参数的宏定义：<pre><code>.macro macro_name# 代码段.end_macro</code></pre></li><li>带参数的宏定义：<pre><code>.macro macro_name(%parameter1, %parameter2, ...)# 代码段.end_macro</code></pre></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计组 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MIPS指令集 </tag>
             
         </tags>
       
