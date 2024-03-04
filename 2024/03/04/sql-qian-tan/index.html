@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    523
+                    767
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -492,21 +492,21 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="SQL浅谈"><a href="#SQL浅谈" class="headerlink" title="SQL浅谈"></a>SQL浅谈</h1><h2 id="一、SQL简介"><a href="#一、SQL简介" class="headerlink" title="一、SQL简介"></a>一、SQL简介</h2><h3 id="1-What’s-this"><a href="#1-What’s-this" class="headerlink" title="1.What’s this?"></a>1.What’s this?</h3><p><strong>SQL</strong>（Structured Query Language）是“<em>结构化查询语言</em>”，它是对<mark>关系型数据库</mark>的操作语言。它可以应用到所有关系型数据库中，例如：MySQL、Oracle、SQL Server 等。</p>
-<h3 id="2-Classification"><a href="#2-Classification" class="headerlink" title="2.Classification"></a>2.Classification</h3><ul>
+                <h1 id="SQL浅谈"><a href="#SQL浅谈" class="headerlink" title="SQL浅谈"></a>SQL浅谈</h1><h2 id="一、SQL简介"><a href="#一、SQL简介" class="headerlink" title="一、SQL简介"></a>一、SQL简介</h2><h3 id="1-What’s-this"><a href="#1-What’s-this" class="headerlink" title="1.What’s this?"></a><em>1.What’s this?</em></h3><p><strong>SQL</strong>（Structured Query Language）是“<em>结构化查询语言</em>”，它是对<mark>关系型数据库</mark>的操作语言。它可以应用到所有关系型数据库中，例如：MySQL、Oracle、SQL Server 等。</p>
+<h3 id="2-Classification"><a href="#2-Classification" class="headerlink" title="2.Classification"></a><em>2.Classification</em></h3><ul>
 <li><mark>DDL</mark>（Data Definition Language) : <strong>数据定义语言</strong>，用来定义数据库对象：库、表、列等；</li>
 <li><mark>DML</mark>（Data Manipulation Language）：<strong>数据操作语言</strong>，用来定义数据库记录（数据）；</li>
 <li><mark>DCL</mark>（Data Control Language）：<strong>数据控制语言</strong>，用来定义访问权限和安全级别；</li>
-<li><mark>DQL</mark>（Data Query Language）：<strong>数据查询语言</strong>，用来查询记录（数据）；<h3 id="3-Warning"><a href="#3-Warning" class="headerlink" title="3.Warning!!!"></a>3.Warning!!!</h3></li>
+<li><mark>DQL</mark>（Data Query Language）：<strong>数据查询语言</strong>，用来查询记录（数据）；<h3 id="3-Warning"><a href="#3-Warning" class="headerlink" title="3.Warning!!!"></a><em>3.Warning!!!</em></h3></li>
 <li>SQL 语句可以<strong><em>单行或多行</em></strong>书写，以<mark>分号</mark>结尾；</li>
 <li>可以用空格和缩进来来增强语句的可读性；</li>
 <li><strong>关键字不区别大小写</strong>，建议使用<mark>大写</mark>；</li>
 </ul>
-<h2 id="二、DDL"><a href="#二、DDL" class="headerlink" title="二、DDL"></a>二、DDL</h2><h3 id="1-数据库操作"><a href="#1-数据库操作" class="headerlink" title="1.数据库操作"></a>1.数据库操作</h3><ol>
+<h2 id="二、DDL"><a href="#二、DDL" class="headerlink" title="二、DDL"></a>二、DDL</h2><h3 id="1-数据库操作"><a href="#1-数据库操作" class="headerlink" title="1.数据库操作"></a><em>1.数据库操作</em></h3><ol>
 <li>查询：<br> 查询所有数据库：<code>show databases;</code><br> 查询当前数据库：<code>select database();</code></li>
 <li>创建：<code>create database if not exists xxx;</code><br> <mark>Attention</mark>：<mark>if not exists</mark><em>可以省略</em>，其用于当所创建的数据库已<strong>存在</strong>时可减少报错。</li>
 <li>删除：<code>drop database if exists xxx;</code><br> <mark>Attention</mark>：<mark>if exists</mark>作用同上。</li>
-<li>使用：<code>use xxx;</code><h3 id="2-表操作"><a href="#2-表操作" class="headerlink" title="2.表操作"></a>2.表操作</h3></li>
+<li>使用：<code>use xxx;</code><h3 id="2-表操作"><a href="#2-表操作" class="headerlink" title="2.表操作"></a><em>2.表操作</em></h3></li>
 <li>查询：<br> 查询当下数据库的所有表：<code>show tables;</code><br> 查询指定表结构：<code>desc xxx;</code><br> 查询指定表的建表语句：<code>show create table xxx;</code></li>
 <li>创建：<blockquote>
 <p>`create table xxx(<br><strong>字段1</strong>   <em>字段1类型</em> [Comment   字段1注释]，<br>……<br><strong>字段n</strong>   <em>字段n类型</em> [Comment   字段n注释]<br>) [Comment   表注释];<br><mark>Attention</mark>：[……]为可选参数，且最后一个字段不跟逗号.</p>
@@ -517,7 +517,18 @@
 </blockquote>
 </li>
 </ol>
-<h2 id="三、DML"><a href="#三、DML" class="headerlink" title="三、DML"></a>三、DML</h2>
+<h2 id="三、DML"><a href="#三、DML" class="headerlink" title="三、DML"></a>三、DML</h2><h3 id="1-添加数据"><a href="#1-添加数据" class="headerlink" title="1.添加数据"></a><em>1.添加数据</em></h3><ol>
+<li>给指定字段添加数据：<code>insert into xxx (字段1，……，字段n) values (值1,……，值n);</code></li>
+<li>给全部字段添加数据：<code>insert into xxx values (值1，……值n);</code></li>
+<li>指定字段批量添加数据：<code>insert into xxx (字段1，……字段n) values (值1,……，值n)，……，(值1,……，值n)；</code></li>
+<li>全部字段批量添加数据：<code>insert into xxx values (值1,……，值n)，……，(值1,……，值n)；</code><blockquote>
+<p><mark>Attention</mark>：<br><em>①插入字段的名称与其数据的顺序需要对应；</em><br><em>②字符串和日期型数据需要写在引号中；</em></p>
+<h3 id="2-修改数据"><a href="#2-修改数据" class="headerlink" title="2.修改数据"></a><em>2.修改数据</em></h3><p><code>update xxx set 字段名1=值1，……，字段名n=值n [where 条件];</code><br><mark>Attention</mark>：<em>条件语句为可选项，如不加条件语句则会更新表中所有数据的相应字段；</em></p>
+<h3 id="3-删除数据"><a href="#3-删除数据" class="headerlink" title="3.删除数据"></a><em>3.删除数据</em></h3><p><code>delete from xxx [where 条件];</code><br><mark>Attention</mark>：<br><em>①这里的条件语句也为可选项，若不选则会删除整张表的所有数据；</em><br><em>②不能单纯删改某个数据的某个字段（可以使用update实现）；</em></p>
+</blockquote>
+</li>
+</ol>
+
                 
             </div>
             <hr/>
@@ -1045,7 +1056,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">8.1k</span>&nbsp;字
+                class="white-color">8.4k</span>&nbsp;字
             
             
             
