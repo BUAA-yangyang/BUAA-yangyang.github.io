@@ -506,10 +506,10 @@
 <li>查询：<br> 查询所有数据库：<code>show databases;</code><br> 查询当前数据库：<code>select database();</code></li>
 <li>创建：<code>create database if not exists xxx;</code><br> <mark>Attention</mark>：<mark>if not exists</mark><em>可以省略</em>，其用于当所创建的数据库已<strong>存在</strong>时可减少报错。</li>
 <li>删除：<code>drop database if exists xxx;</code><br> <mark>Attention</mark>：<mark>if exists</mark>作用同上。</li>
-<li><p>使用：<code>use xxx;</code></p>
-<h3 id="2-表操作"><a href="#2-表操作" class="headerlink" title="2.表操作"></a><em>2.表操作</em></h3></li>
-<li><p>查询：<br> 查询当下数据库的所有表：<code>show tables;</code><br> 查询指定表结构：<code>desc xxx;</code><br> 查询指定表的建表语句：<code>show create table xxx;</code></p>
-</li>
+<li>使用：<code>use xxx;</code></li>
+</ol>
+<h3 id="2-表操作"><a href="#2-表操作" class="headerlink" title="2.表操作"></a><em>2.表操作</em></h3><ol>
+<li>查询：<br> 查询当下数据库的所有表：<code>show tables;</code><br> 查询指定表结构：<code>desc xxx;</code><br> 查询指定表的建表语句：<code>show create table xxx;</code></li>
 <li>创建：<blockquote>
 <p>`create table xxx(<br><strong>字段1</strong>   <em>字段1类型</em> [Comment   字段1注释]，<br>……<br><strong>字段n</strong>   <em>字段n类型</em> [Comment   字段n注释]<br>) [Comment   表注释];<br><mark>Attention</mark>：[……]为可选参数，且最后一个字段不跟逗号.</p>
 </blockquote>
@@ -518,7 +518,8 @@
 <p><mark>Attention</mark>：最后一条表明删除该表的数据而不改变该表的结构.</p>
 </blockquote>
 </li>
-<li><h2 id="三、DML"><a href="#三、DML" class="headerlink" title="三、DML"></a>三、DML</h2><h3 id="1-添加数据"><a href="#1-添加数据" class="headerlink" title="1.添加数据"></a><em>1.添加数据</em></h3></li>
+</ol>
+<h2 id="三、DML"><a href="#三、DML" class="headerlink" title="三、DML"></a>三、DML</h2><h3 id="1-添加数据"><a href="#1-添加数据" class="headerlink" title="1.添加数据"></a><em>1.添加数据</em></h3><ol>
 <li>给指定字段添加数据：<code>insert into xxx (字段1，……，字段n) values (值1,……，值n);</code></li>
 <li>给全部字段添加数据：<code>insert into xxx values (值1，……值n);</code></li>
 <li>指定字段批量添加数据：<code>insert into xxx (字段1，……字段n) values (值1,……，值n)，……，(值1,……，值n)；</code></li>
@@ -588,7 +589,7 @@
 <li>删除用户：<code>drop user &#39;用户名&#39;@&#39;主机名&#39;;</code><h3 id="2-权限管理"><a href="#2-权限管理" class="headerlink" title="2.权限管理"></a><em>2.权限管理</em></h3></li>
 <li>查询权限：<code>show grants for &#39;用户名&#39;@&#39;主机名&#39;;</code></li>
 <li>授予权限：<code>grant 权限列表 on 数据库名.表名 to &#39;用户名&#39;@&#39;主机名&#39;;</code></li>
-<li>撤销权限：<code>revoke 权限列表 on 数据库名.表名 from &#39;用户名&#39;@&#39;主机名&#39;;</code>ssss</li>
+<li>撤销权限：<code>revoke 权限列表 on 数据库名.表名 from &#39;用户名&#39;@&#39;主机名&#39;;</code></li>
 </ol>
 
                 
