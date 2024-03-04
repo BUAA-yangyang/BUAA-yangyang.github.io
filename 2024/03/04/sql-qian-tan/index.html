@@ -506,8 +506,10 @@
 <li>查询：<br> 查询所有数据库：<code>show databases;</code><br> 查询当前数据库：<code>select database();</code></li>
 <li>创建：<code>create database if not exists xxx;</code><br> <mark>Attention</mark>：<mark>if not exists</mark><em>可以省略</em>，其用于当所创建的数据库已<strong>存在</strong>时可减少报错。</li>
 <li>删除：<code>drop database if exists xxx;</code><br> <mark>Attention</mark>：<mark>if exists</mark>作用同上。</li>
-<li>使用：<code>use xxx;</code><h3 id="2-表操作"><a href="#2-表操作" class="headerlink" title="2.表操作"></a><em>2.表操作</em></h3></li>
-<li>查询：<br> 查询当下数据库的所有表：<code>show tables;</code><br> 查询指定表结构：<code>desc xxx;</code><br> 查询指定表的建表语句：<code>show create table xxx;</code></li>
+<li><p>使用：<code>use xxx;</code></p>
+<h3 id="2-表操作"><a href="#2-表操作" class="headerlink" title="2.表操作"></a><em>2.表操作</em></h3></li>
+<li><p>查询：<br> 查询当下数据库的所有表：<code>show tables;</code><br> 查询指定表结构：<code>desc xxx;</code><br> 查询指定表的建表语句：<code>show create table xxx;</code></p>
+</li>
 <li>创建：<blockquote>
 <p>`create table xxx(<br><strong>字段1</strong>   <em>字段1类型</em> [Comment   字段1注释]，<br>……<br><strong>字段n</strong>   <em>字段n类型</em> [Comment   字段n注释]<br>) [Comment   表注释];<br><mark>Attention</mark>：[……]为可选参数，且最后一个字段不跟逗号.</p>
 </blockquote>
@@ -523,21 +525,19 @@
 <li>指定字段批量添加数据：<code>insert into xxx (字段1，……字段n) values (值1,……，值n)，……，(值1,……，值n)；</code></li>
 <li>全部字段批量添加数据：<code>insert into xxx values (值1,……，值n)，……，(值1,……，值n)；</code><blockquote>
 <p><mark>Attention</mark>：<br><em>①插入字段的名称与其数据的顺序需要对应；</em><br><em>②字符串和日期型数据需要写在引号中；</em></p>
-<h3 id="2-修改数据"><a href="#2-修改数据" class="headerlink" title="2.修改数据"></a><em>2.修改数据</em></h3><p><code>update xxx set 字段名1=值1，……，字段名n=值n [where 条件];</code><br><mark>Attention</mark>：<em>条件语句为可选项，如不加条件语句则会更新表中所有数据的相应字段；</em></p>
+<h3 id="2-修改数据"><a href="#2-修改数据" class="headerlink" title="2.修改数据"></a><em>2.修改数据</em></h3><p><code>update xxx set 字段名1=值1，……，字段名n=值n [where 条件];</code><br><mark>Attention</mark>：<em>条件语句为可选项，如不加条件语句则会更新表中所有数据的相应字段；</em>    </p>
 <h3 id="3-删除数据"><a href="#3-删除数据" class="headerlink" title="3.删除数据"></a><em>3.删除数据</em></h3><p><code>delete from xxx [where 条件];</code><br><mark>Attention</mark>：<br><em>①这里的条件语句也为可选项，若不选则会删除整张表的所有数据；</em><br><em>②不能单纯删改某个数据的某个字段（可以使用update实现）；</em></p>
 </blockquote>
 </li>
 </ol>
 <h2 id="四、DQL"><a href="#四、DQL" class="headerlink" title="四、DQL"></a>四、DQL</h2><h3 id="1-基本查询"><a href="#1-基本查询" class="headerlink" title="1.基本查询"></a><em>1.基本查询</em></h3><p><code>select 字段1，……，字段n from xxx;</code></p>
 <blockquote>
-<p><mark>Attention</mark>：<br><em>①`select </em> from xxx;<code>可查询表中***所有字段***的数据；*
-*②</code>select 字段1 [as] ‘别名1’，……，字段n [as] ‘别名n’ from xxx;<code>可以为查询的字段设置别名，阅读起来更加直观;*
-*③</code>select distinct 字段1，……，字段n from xxx;`可以去除重复记录;*</p>
+<p><mark>Attention</mark>：<br>①<code>select * from xxx;</code> 可查询表中<strong><em>所有字段</em></strong>的数据；<br>②<code>select 字段1 [as] &#39;别名1&#39;，……，字段n [as] &#39;别名n&#39; from xxx;</code>可以为查询的字段设置别名，阅读起来更加直观;<br>③<code>select distinct 字段1，……，字段n from xxx;</code>可以去除重复记录;</p>
 <h3 id="2-条件查询"><a href="#2-条件查询" class="headerlink" title="2.条件查询"></a><em>2.条件查询</em></h3><p><code>select 字段列表 from xxx where 条件列表;</code></p>
 <h3 id="3-聚合函数"><a href="#3-聚合函数" class="headerlink" title="3.聚合函数"></a><em>3.聚合函数</em></h3><p><code>select 聚合函数（字段列表）from xxx;</code><br><mark>Attention</mark>：<br><em>①常见聚合函数共有五类：count(求数量)，max(求最大值)，min(求最小值)，avg(求平均值)，sum(求和)；</em><br><em>②Null值不参与聚合函数的计算</em></p>
 <h3 id="4-分组查询"><a href="#4-分组查询" class="headerlink" title="4.分组查询"></a><em>4.分组查询</em></h3><p><code>select 字段列表 from xxx [where 条件] group by 分组字段名 [having 条件];</code><br><mark>Attention</mark>：<br><em>①where是分组之前进行过滤，having是分组之后进行过滤</em><br><em>②where不能对聚合函数进行判断，而having可以</em><br><em>③分组后，查询的字段为聚合函数或分组字段，查询其他字段没有意义</em></p>
 <h3 id="5-排序查询"><a href="#5-排序查询" class="headerlink" title="5.排序查询"></a><em>5.排序查询</em></h3><p><code>select 字段列表 from xxx order by 字段1 排序方式1，……，字段n 排序方式n;</code><br><mark>Attention</mark>：<br><em>①<strong>排序方式</strong>有两种：ASC-&gt;升序(默认值)，DESC-&gt;降序；</em><br><em>②排序方式的优先级从1到n</em></p>
-<h3 id="6-分页查询"><a href="#6-分页查询" class="headerlink" title="6.分页查询"></a><em>6.分页查询</em></h3><p><code>select 字段列表 from xxx limit 起始索引,查询记录数;</code><br><mark>Attention</mark>：<br><em>①起始索引从0开始，其表达式为：（查询页码-1）✖每页记录数；</em><br><em>②若查询的是第一页数据，起始索引可以省略；</em></p>
+<h3 id="6-分页查询"><a href="#6-分页查询" class="headerlink" title="6.分页查询"></a><em>6.分页查询</em></h3><p><code>select 字段列表 from xxx limit 起始索引,查询记录数;</code><br><mark>Attention</mark>：<br>①起始索引从0开始，其表达式为：（查询页码-1）✖每页记录数；<br>②若查询的是第一页数据，起始索引可以省略；</p>
 <h3 id="7-执行顺序"><a href="#7-执行顺序" class="headerlink" title="7.执行顺序"></a><em>7.执行顺序</em></h3><p><code>from -&gt; where -&gt; group by [having]-&gt; select -&gt; order by -&gt; limit</code><br><mark>Attention</mark>：编写顺序为：<code>select -&gt; from -&gt; where -&gt; group by[having] -&gt; order by -&gt; limit</code></p>
 </blockquote>
 <h2 id="五、DCL"><a href="#五、DCL" class="headerlink" title="五、DCL"></a>五、DCL</h2><h3 id="1-用户管理"><a href="#1-用户管理" class="headerlink" title="1.用户管理"></a><em>1.用户管理</em></h3><ol>
