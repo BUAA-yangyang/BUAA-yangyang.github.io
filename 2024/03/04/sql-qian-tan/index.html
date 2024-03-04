@@ -492,28 +492,28 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="SQL浅谈"><a href="#SQL浅谈" class="headerlink" title="SQL浅谈"></a>SQL浅谈</h1><h2 id="一、SQL简介"><a href="#一、SQL简介" class="headerlink" title="一、SQL简介"></a>一、SQL简介</h2><h3 id="1-What’s-this"><a href="#1-What’s-this" class="headerlink" title="1.What’s this?"></a>1.What’s this?</h3><p><strong>SQL</strong>（Structured Query Language）是“<em>结构化查询语言</em>”，它是对==关系型数据库==的操作语言。它可以应用到所有关系型数据库中，例如：MySQL、Oracle、SQL Server 等。</p>
+                <h1 id="SQL浅谈"><a href="#SQL浅谈" class="headerlink" title="SQL浅谈"></a>SQL浅谈</h1><h2 id="一、SQL简介"><a href="#一、SQL简介" class="headerlink" title="一、SQL简介"></a>一、SQL简介</h2><h3 id="1-What’s-this"><a href="#1-What’s-this" class="headerlink" title="1.What’s this?"></a>1.What’s this?</h3><p><strong>SQL</strong>（Structured Query Language）是“<em>结构化查询语言</em>”，它是对<mark>关系型数据库</mark>的操作语言。它可以应用到所有关系型数据库中，例如：MySQL、Oracle、SQL Server 等。</p>
 <h3 id="2-Classification"><a href="#2-Classification" class="headerlink" title="2.Classification"></a>2.Classification</h3><ul>
-<li>==DDL==（Data Definition Language) : <strong>数据定义语言</strong>，用来定义数据库对象：库、表、列等；</li>
-<li>==DML==（Data Manipulation Language）：<strong>数据操作语言</strong>，用来定义数据库记录（数据）；</li>
-<li>==DCL==（Data Control Language）：<strong>数据控制语言</strong>，用来定义访问权限和安全级别；</li>
-<li>==DQL==（Data Query Language）：<strong>数据查询语言</strong>，用来查询记录（数据）；<h3 id="3-Warning"><a href="#3-Warning" class="headerlink" title="3.Warning!!!"></a>3.Warning!!!</h3></li>
-<li>SQL 语句可以<strong><em>单行或多行</em></strong>书写，以==分号==结尾；</li>
+<li><mark>DDL</mark>（Data Definition Language) : <strong>数据定义语言</strong>，用来定义数据库对象：库、表、列等；</li>
+<li><mark>DML</mark>（Data Manipulation Language）：<strong>数据操作语言</strong>，用来定义数据库记录（数据）；</li>
+<li><mark>DCL</mark>（Data Control Language）：<strong>数据控制语言</strong>，用来定义访问权限和安全级别；</li>
+<li><mark>DQL</mark>（Data Query Language）：<strong>数据查询语言</strong>，用来查询记录（数据）；<h3 id="3-Warning"><a href="#3-Warning" class="headerlink" title="3.Warning!!!"></a>3.Warning!!!</h3></li>
+<li>SQL 语句可以<strong><em>单行或多行</em></strong>书写，以<mark>分号</mark>结尾；</li>
 <li>可以用空格和缩进来来增强语句的可读性；</li>
-<li><strong>关键字不区别大小写</strong>，建议使用==大写==；</li>
+<li><strong>关键字不区别大小写</strong>，建议使用<mark>大写</mark>；</li>
 </ul>
 <h2 id="二、DDL"><a href="#二、DDL" class="headerlink" title="二、DDL"></a>二、DDL</h2><h3 id="1-数据库操作"><a href="#1-数据库操作" class="headerlink" title="1.数据库操作"></a>1.数据库操作</h3><ol>
-<li>==查询==：<br> 查询所有数据库：<code>show databases;</code><br> 查询当前数据库：<code>select database();</code></li>
-<li>创建：<code>create database if not exists xxx;</code><br> ==Attention==：==if not exists==<em>可以省略</em>，其用于当所创建的数据库已<strong>存在</strong>时可减少报错。</li>
-<li>删除：<code>drop database if exists xxx;</code><br> ==Attention==：==if exists==作用同上。</li>
+<li>查询：<br> 查询所有数据库：<code>show databases;</code><br> 查询当前数据库：<code>select database();</code></li>
+<li>创建：<code>create database if not exists xxx;</code><br> <mark>Attention</mark>：<mark>if not exists</mark><em>可以省略</em>，其用于当所创建的数据库已<strong>存在</strong>时可减少报错。</li>
+<li>删除：<code>drop database if exists xxx;</code><br> <mark>Attention</mark>：<mark>if exists</mark>作用同上。</li>
 <li>使用：<code>use xxx;</code><h3 id="2-表操作"><a href="#2-表操作" class="headerlink" title="2.表操作"></a>2.表操作</h3></li>
 <li>查询：<br> 查询当下数据库的所有表：<code>show tables;</code><br> 查询指定表结构：<code>desc xxx;</code><br> 查询指定表的建表语句：<code>show create table xxx;</code></li>
 <li>创建：<blockquote>
-<p>`create table xxx(<br><strong>字段1</strong>   <em>字段1类型</em> [Comment   字段1注释]，<br>……<br><strong>字段n</strong>   <em>字段n类型</em> [Comment   字段n注释]<br>) [Comment   表注释];<br>Attention: [……]为可选参数，且最后一个字段不跟逗号.</p>
+<p>`create table xxx(<br><strong>字段1</strong>   <em>字段1类型</em> [Comment   字段1注释]，<br>……<br><strong>字段n</strong>   <em>字段n类型</em> [Comment   字段n注释]<br>) [Comment   表注释];<br><mark>Attention</mark>：[……]为可选参数，且最后一个字段不跟逗号.</p>
 </blockquote>
 </li>
 <li>修改：<br> 添加字段：<code>alter table xxx add 字段名 字段类型（长度）[comment 注释] [约束];</code><br> 修改数据类型：<code>alter table xxx modify 字段名 新字段类型（长度）;</code><br> 修改字段名和字段类型：<code>alter table xxx change 旧字段名 新字段名 新字段类型（长度）[comment 注释];</code><br> 删除字段：<code>alter table xxx drop 字段名;</code><br> 修改表名：<code>alter table xxx rename to 新表名;</code><br> 删除指定表：<code>drop table if exists xxx;</code><br> 删除指定表并重新创建该表：<code>truncate table xxx;</code><blockquote>
-<p>Attention：最后一条表明删除该表的数据而不改变该表的结构.</p>
+<p><mark>Attention</mark>：最后一条表明删除该表的数据而不改变该表的结构.</p>
 </blockquote>
 </li>
 </ol>
