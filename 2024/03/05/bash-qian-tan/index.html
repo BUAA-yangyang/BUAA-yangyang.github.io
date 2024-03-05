@@ -516,7 +516,9 @@
 <li><code>echo &quot;xxx&quot; &quot;xxx&quot; …… &quot;xxx&quot;</code> <strong><em>OR</em></strong> <code>echo xxx …… xxx</code>：单行输出；</li>
 <li><code>echo &quot;xxx&quot;</code> ：<code>xxx</code>为多行文本时可以一次输出多行；</li>
 <li><code>echo -n &quot;xxx&quot;;echo &quot;yyy&quot;</code>：可以实现输出<code>xxxyyy</code>，即<code>-n</code>可以省略换行符；</li>
-<li>echo -e “damn\nbro”：若没有参数<code>-e</code>，则转义换行字符<code>\n</code>不会翻译；<h3 id="2-命令的继发关系"><a href="#2-命令的继发关系" class="headerlink" title="2.命令的继发关系"></a><em>2.命令的继发关系</em></h3></li>
+<li>echo -e “damn\nbro”：若没有参数<code>-e</code>，则转义换行字符<code>\n</code>不会翻译；</li>
+</ol>
+<h3 id="2-命令的继发关系"><a href="#2-命令的继发关系" class="headerlink" title="2.命令的继发关系"></a><em>2.命令的继发关系</em></h3><ol>
 <li><code>command1 ;command2</code>：无论命令1是否成功执行，都会继续执行命令2；</li>
 <li><code>command1 &amp;&amp; command2</code>：只有命令1成功执行，命令2才会执行；</li>
 <li><code>command1 || command2</code>：只有命令1执行失败，命令2才会执行；</li>
