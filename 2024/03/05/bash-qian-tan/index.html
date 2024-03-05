@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Linux 命令, yangyang&#39;s blog">
+    <meta name="keywords" content="Bash浅谈, yangyang&#39;s blog">
     <meta name="description" content="noob now">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Linux 命令 | yangyang&#39;s blog</title>
+    <title>Bash浅谈 | yangyang&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Linux 命令</h1>
+                    <h1 class="description center-align post-title">Bash浅谈</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Linux/">
-                                <span class="chip bg-color">Linux</span>
+                            <a href="/tags/Shell%E7%BC%96%E7%A8%8B/">
+                                <span class="chip bg-color">Shell编程</span>
+                            </a>
+                        
+                            <a href="/tags/Bash/">
+                                <span class="chip bg-color">Bash</span>
                             </a>
                         
                     </div>
@@ -456,7 +460,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-10-09
+                    2024-03-05
                 </div>
                 
 
@@ -465,14 +469,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    118
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
 
@@ -492,12 +496,89 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Linux命令"><a href="#Linux命令" class="headerlink" title="Linux命令"></a>Linux命令</h1><hr>
-<h2 id="1-基础操作命令"><a href="#1-基础操作命令" class="headerlink" title="1.基础操作命令"></a>1.基础操作命令</h2><h3 id="cd"><a href="#cd" class="headerlink" title="cd"></a><em>cd</em></h3><ul>
-<li>功能描述：切换目录</li>
-<li>格式：cd[相对路径/绝对路径/特殊符号]</li>
-<li>用法：①不加参数→默认切换到用户主目录；②接绝对/相对路径→切换到对应目录；③接“~”→切换到主目录；④接“-”→返回到上次所在的目录；⑤接“..”→返回上级目录；⑥“../..”返回上两级目录；<br>（未完待续）<br>Linux真TM难学，助教看见了可以多来捞捞吗（闭目</li>
+                <h1 id="Bash浅谈"><a href="#Bash浅谈" class="headerlink" title="Bash浅谈"></a>Bash浅谈</h1><h2 id="一、Bash简介"><a href="#一、Bash简介" class="headerlink" title="一、Bash简介"></a>一、Bash简介</h2><h3 id="1-What’s-Bash"><a href="#1-What’s-Bash" class="headerlink" title="1.What’s Bash"></a><em>1.What’s Bash</em></h3><ol>
+<li><mark>Bash</mark> 是 <strong><em>Unix</em></strong> 系统和 <strong><em>Linux</em></strong> 系统的一种 <strong><em>Shell</em></strong>（<strong>命令行环境</strong>），是目前绝大多数 Linux 发行版的默认 Shell。</li>
+<li>that’s all.</li>
+</ol>
+<h2 id="二、脚本常识"><a href="#二、脚本常识" class="headerlink" title="二、脚本常识"></a>二、脚本常识</h2><h3 id="1-声明Bash-Shell"><a href="#1-声明Bash-Shell" class="headerlink" title="1.声明Bash Shell"></a><em>1.声明Bash Shell</em></h3><ol>
+<li><code>#!/bin/bash</code>：声明使用的解析器，可避免系统采用默认解析器去运行脚本带来的可能的错误。<blockquote>
+<p><mark>Attention</mark>：<br><em>①第一行的“井号+感叹号+脚本解释器程序路径”，说明这是一个可执行的脚本；</em><br><em>②任意行的单独的”井号“都是注释作用，非第一行的“井号+感叹号“也是注释作用；</em><br><em>③避免问题：你的脚本是Bash Shell,系统默认的是Csh，若不声明，那么你的脚本运行错误；</em></p>
+</blockquote>
+</li>
+</ol>
+<h3 id="2-脚本的执行权限"><a href="#2-脚本的执行权限" class="headerlink" title="2.脚本的执行权限"></a><em>2.脚本的执行权限</em></h3><ol>
+<li>Linux脚本 <strong>不以</strong> 后缀来判断它是否可执行，而是以命令 ”ls -l“ 来查看它是否是可执行文件，可使用chmod来变更脚本权限（该命令使用方式请自查文档），这样才能运行；</li>
+</ol>
+<h3 id="3-脚本的组织方式"><a href="#3-脚本的组织方式" class="headerlink" title="3.脚本的组织方式"></a><em>3.脚本的组织方式</em></h3><ol>
+<li>脚本是由命令组成的，而命令的执行都是单独的，即使报错也不影响下一条命令的执行；一行语句可以包含多个命令，用”;”隔开。</li>
+</ol>
+<h2 id="三、命令基础理解"><a href="#三、命令基础理解" class="headerlink" title="三、命令基础理解"></a>三、命令基础理解</h2><h2 id="1-echo命令"><a href="#1-echo命令" class="headerlink" title="1.echo命令"></a><em>1.echo命令</em></h2><ol>
+<li><code>echo &quot;xxx&quot; &quot;xxx&quot; …… &quot;xxx&quot;</code> <strong><em>OR</em></strong> <code>echo xxx …… xxx</code>：单行输出；</li>
+<li><code>echo &quot;xxx&quot;</code> ：<code>xxx</code>为多行文本时可以一次输出多行；</li>
+<li><code>echo -n &quot;xxx&quot;;echo &quot;yyy&quot;</code>：可以实现输出<code>xxxyyy</code>，即<code>-n</code>可以省略换行符；</li>
+<li>echo -e “damn\nbro”：若没有参数<code>-e</code>，则转义换行字符<code>\n</code>不会翻译；<h3 id="2-命令的继发关系"><a href="#2-命令的继发关系" class="headerlink" title="2.命令的继发关系"></a><em>2.命令的继发关系</em></h3></li>
+<li><code>command1 ;command2</code>：无论命令1是否成功执行，都会继续执行命令2；</li>
+<li><code>command1 &amp;&amp; command2</code>：只有命令1成功执行，命令2才会执行；</li>
+<li><code>command1 || command2</code>：只有命令1执行失败，命令2才会执行；</li>
+</ol>
+<h3 id="3-type命令"><a href="#3-type命令" class="headerlink" title="3.type命令"></a><em>3.type命令</em></h3><ol>
+<li><code>type command</code>：查看<code>command</code>是内部命令还是外部程序；</li>
+<li><code>type -a command</code>：显示<code>command</code>的所有定义；</li>
+<li><code>type -t command</code>：返回<code>command</code>的类型：别名（<code>alias</code>），关键词（<code>keyword</code>），函数（<code>function</code>），内置命令（<code>builtin</code>）和文件（<code>file</code>）；</li>
+</ol>
+<h2 id="四、命令的模式拓展（通配符拓展）"><a href="#四、命令的模式拓展（通配符拓展）" class="headerlink" title="四、命令的模式拓展（通配符拓展）"></a>四、命令的模式拓展（通配符拓展）</h2><h3 id="1-拓展"><a href="#1-拓展" class="headerlink" title="1.~拓展"></a><em>1.~拓展</em></h3><ol>
+<li><code>~</code>会自动拓展成当前用户的主目录；</li>
+<li><code>~+</code>会自动拓展当前所在目录；</li>
+</ol>
+<h3 id="2-拓展"><a href="#2-拓展" class="headerlink" title="2.?拓展"></a><em>2.?拓展</em></h3><ol>
+<li><code>?</code>字符代表<mark>当前目录</mark>（不包括子目录）下里面的<strong><em>任意单个字符</em></strong>，不包括空字符；</li>
+<li><code>?</code> 字符扩展属于<strong><em>文件名扩展</em></strong>，只有文件确实存在的前提下，才会发生扩展。如果文件不存在，扩展就不会发生。</li>
+</ol>
+<h3 id="3-拓展"><a href="#3-拓展" class="headerlink" title="3.拓展*"></a><em>3.</em>拓展*</h3><ol>
+<li><code>*</code>字符代表<mark>当前目录</mark>（不包括子目录）下文件路径里面的任意数量的任意字符，包括空字符。</li>
+<li>如果要匹配隐藏文件，需要写成<code>.*</code>，否则不会匹配；</li>
+<li><code>*</code>字符扩展属于<strong><em>文件名扩展</em></strong>，只有文件确实存在的前提下才会扩展。如果文件不存在，就会原样输出。</li>
+</ol>
+<h3 id="4-拓展"><a href="#4-拓展" class="headerlink" title="4.[ ]拓展"></a><em>4.[ ]拓展</em></h3><ol>
+<li><code>[xyz]</code>代表<mark>当前目录</mark>（不包括子目录）下文件路径里面的<code>xyz</code>中的任意一个字符。</li>
+<li><code>[^xyz]或者[!xyz]</code>代表<mark>当前目录</mark>（不包括子目录）下文件路径里面的除了<code>xyz</code>以外的任意一个字符。</li>
+<li><code>[a-c]</code>等同于<code>[abc]</code>，<code>[!a-c]</code>等同于<code>[!abc]</code>；</li>
+<li>[ ]扩展扩展属于<strong><em>文件名扩展</em></strong>，只有文件确实存在的前提下才会扩展。如果文件不存在，就会原样输出。</li>
+</ol>
+<h3 id="5-拓展"><a href="#5-拓展" class="headerlink" title="5.{ }拓展"></a><em>5.{ }拓展</em></h3><ol>
+<li>大括号扩展<code>&#123;1,2,3&#125;</code>表示分别扩展成大括号里面的所有值，各个值之间使用逗号分隔；</li>
+<li>大括号拓展可以<mark>嵌套</mark>，也可以与其他模式联用，并且总是先于其他模式进行扩展；</li>
+<li><code>&#123;1..4&#125;</code>等同于<code>&#123;1,2,3,4&#125;</code>，<code>&#123;4..1&#125;</code>等同于<code>&#123;4,3,2,1&#125;</code>，<code>&#123;01..4&#125;</code>等同于<code>&#123;01,02,03,04&#125;</code>，<code>&#123;0..8..2&#125;</code>等同于<code>&#123;0,2,4,6,8&#125;</code>；</li>
+<li>大括号扩展不是<strong><em>文件名扩展</em></strong>。它会扩展成所有给定的值，而不管是否有对应的文件存在。当对应文件不存在时，相应命令会报错或者继续通配输出；</li>
+</ol>
+<h3 id="6-变量拓展"><a href="#6-变量拓展" class="headerlink" title="*6.变量拓展"></a>*6.变量拓展</h3><ol>
+<li>将美元符号<code>$</code>开头的词元视为变量，将其扩展成变量值；</li>
+<li>变量名除了放在美元符号后面，也可以放在<code>$&#123;&#125;</code>里面；</li>
+<li><code>$&#123;!string*&#125;</code>或<code>$&#123;!string@&#125;</code>返回所有匹配给定字符串<code>string</code>的变量名；</li>
+</ol>
+<h3 id="7-子命令拓展"><a href="#7-子命令拓展" class="headerlink" title="7.子命令拓展"></a><em>7.子命令拓展</em></h3><ol>
+<li><code>$(command)</code>可以扩展成另一个命令的运行结果，该命令<code>command</code>的所有输出都会作为返回值。</li>
+</ol>
+<h3 id="8-算术拓展"><a href="#8-算术拓展" class="headerlink" title="8.算术拓展"></a><em>8.算术拓展</em></h3><ol>
+<li><code>$((...))</code>可以扩展成整数运算的结果：<code>echo $((2 + 2))</code>输出<code>4</code>；</li>
+</ol>
+<h3 id="9-字符类拓展"><a href="#9-字符类拓展" class="headerlink" title="9.字符类拓展"></a><em>9.字符类拓展</em></h3><ol>
+<li><code>[[:class:]]</code>表示一个字符类，扩展成某一类特定字符之中的一个；</li>
+<li>常见的字符类如下：<ul>
+<li><code>[[:alnum:]]</code>：匹配任意英文字母与数字；</li>
+<li><code>[[:alpha:]]</code>：匹配任意英文字母；</li>
+<li><code>[[:graph:]]</code>：A-Z、a-z、0-9 和标点符号；</li>
+<li><code>[[:lower:]]</code>：匹配任意小写字母 a-z；</li>
+<li><code>[[:upper:]]</code>：匹配任意大写字母 A-Z；</li>
+<li><code>[[:print:]]</code>：ASCII 码 32-127 的可打印字符；</li>
+<li><code>[[:cntrl:]]</code>：ASCII 码 0-31 的不可打印字符；</li>
+<li><code>[[:digit:]]</code>：匹配任意数字 0-9；</li>
+<li><code>[[:xdigit:]]</code>：16进制字符（A-F、a-f、0-9）；</li>
 </ul>
+</li>
+<li>字符类的第一个方括号后面，可以加上感叹号<code>!</code>（或<code>^</code>），表示否定。比如，<code>[![:digit:]]</code>(或<code>[^[:digit:]]</code>)匹配所有非数字。</li>
+<li>字符类也属于<strong><em>文件名扩展</em></strong>，如果没有匹配的文件名，字符类就会原样输出。</li>
+</ol>
 
                 
             </div>
@@ -524,7 +605,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://BUAA-yangyang.github.io/2023/10/09/linux-ming-ling/">http://BUAA-yangyang.github.io/2023/10/09/linux-ming-ling/</a>
+                    <a href="http://BUAA-yangyang.github.io/2024/03/05/bash-qian-tan/">http://BUAA-yangyang.github.io/2024/03/05/bash-qian-tan/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -562,8 +643,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Linux/">
-                                    <span class="chip bg-color">Linux</span>
+                                <a href="/tags/Shell%E7%BC%96%E7%A8%8B/">
+                                    <span class="chip bg-color">Shell编程</span>
+                                </a>
+                            
+                                <a href="/tags/Bash/">
+                                    <span class="chip bg-color">Bash</span>
                                 </a>
                             
                         </div>
@@ -733,17 +818,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/10/09/shi-xu-luo-ji/">
+                <a href="/2024/03/05/bash-qian-tan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="时序逻辑">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Bash浅谈">
                         
-                        <span class="card-title">时序逻辑</span>
+                        <span class="card-title">Bash浅谈</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -753,26 +839,31 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-10-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%BB%84/" class="post-category">
-                                    计组
+                            <a href="/categories/Linux%E5%91%BD%E4%BB%A4/" class="post-category">
+                                    Linux命令
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/">
-                        <span class="chip bg-color">数字电路</span>
+                    <a href="/tags/Shell%E7%BC%96%E7%A8%8B/">
+                        <span class="chip bg-color">Shell编程</span>
+                    </a>
+                    
+                    <a href="/tags/Bash/">
+                        <span class="chip bg-color">Bash</span>
                     </a>
                     
                 </div>
@@ -786,13 +877,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/10/08/zu-he-luo-ji/">
+                <a href="/2024/03/05/git-jian-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="组合逻辑">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="GIT简介">
                         
-                        <span class="card-title">组合逻辑</span>
+                        <span class="card-title">GIT简介</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -803,14 +894,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-05
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%BB%84/" class="post-category">
-                                    计组
+                            <a href="/categories/GIT/" class="post-category">
+                                    GIT
                                 </a>
                             
                             
@@ -820,8 +911,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/">
-                        <span class="chip bg-color">数字电路</span>
+                    <a href="/tags/GIT/">
+                        <span class="chip bg-color">GIT</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BB%A3%E7%A0%81%E6%89%98%E7%AE%A1/">
+                        <span class="chip bg-color">代码托管</span>
                     </a>
                     
                 </div>
@@ -952,13 +1047,6 @@
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
 
