@@ -469,14 +469,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    2.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    9 分
                 </div>
                 
 
@@ -580,6 +580,88 @@
 </li>
 <li>字符类的第一个方括号后面，可以加上感叹号<code>!</code>（或<code>^</code>），表示否定。比如，<code>[![:digit:]]</code>(或<code>[^[:digit:]]</code>)匹配所有非数字。</li>
 <li>字符类也属于<strong><em>文件名扩展</em></strong>，如果没有匹配的文件名，字符类就会原样输出。</li>
+</ol>
+<h3 id="10-Cautions"><a href="#10-Cautions" class="headerlink" title="10.Cautions"></a><em>10.Cautions</em></h3><ol>
+<li>通配符是先解释再执行；</li>
+<li>所有<strong><em>文件名扩展</em></strong>只匹配<strong><em>单层路径</em></strong>，不能跨目录匹配，即无法匹配子目录里面的文件。或者说，<code>?</code>或<code>*</code>这样的通配符，不能匹配路径分隔符（<code>/</code>）；</li>
+<li>Bash 允许文件名使用通配符，即文件名包括特殊字符。这时引用文件名，需要把文件名放在<strong><em>单引号或双引号</em></strong>里面。</li>
+</ol>
+<h2 id="五、变量"><a href="#五、变量" class="headerlink" title="五、变量"></a>五、变量</h2><h3 id="1-创建变量"><a href="#1-创建变量" class="headerlink" title="1.创建变量"></a><em>1.创建变量</em></h3><ol>
+<li>命令格式：<code>xxx=value</code>；<blockquote>
+<p><mark>Attention</mark>：<br><em>①由字母、数字和下划线组成；</em><br><em>②不能以数字开头；</em><br><em>③赋值时等号两边不能有空格；</em><br><em>④变量的值包含空格则需放入引号中；</em><br><em>⑤Bash没有数据类型的概念，所有变量值都是字符串；</em></p>
+</blockquote>
+</li>
+</ol>
+<h3 id="2-读取变量"><a href="#2-读取变量" class="headerlink" title="2.读取变量"></a><em>2.读取变量</em></h3><ol>
+<li><p>常用命令格式：<code>$A或者$&#123;A&#125;</code>；</p>
+<blockquote>
+<p><mark>Attention</mark>：<br><em>①当变量不存在时，不会报错，而是会输出空字符；</em><br><em>②后者比前者用途更广，比如当变量名与其他字符连用时：<code>$&#123;A&#125;damn</code>会输出<code>M3damn</code>，而<code>#Adamn</code>会去尝试读取变量<code>Adamn</code>而输出空字符（A=M3）；</em></p>
+</blockquote>
+</li>
+<li><p>特殊命令格式：</p>
+<ul>
+<li><code>$&#123;!A&#125;</code>可以输出变量的最终值<code>M3</code>（<code>A=DAMN;DAMN=M3</code>）；</li>
+<li><code>&quot;$&#123;A&#125;&quot;</code>可以完整地输出变量值中的所有空格：<code>echo $&#123;A&#125;</code>会输出<code>1 2 3</code>；<code>echo &quot;$&#123;A&#125;&quot;</code>会输出<code>1 2  3</code>（<code>A=&quot;1 2  3&quot;</code>）；</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-删除变量"><a href="#3-删除变量" class="headerlink" title="3.删除变量"></a><em>3.删除变量</em></h3><ol>
+<li>命令格式：<ul>
+<li><code>unset A</code></li>
+<li><code>A=&#39;&#39;</code></li>
+<li><code>A=</code><blockquote>
+<p><mark>Attention</mark>：因为不存在的 Bash 变量一律等于空字符串，所以即使<code>unset</code>命令删除了变量，还是可以读取这个变量，值为空字符串。所以，删除一个变量，也可以将这个变量设成空字符串。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="4-变量继承"><a href="#4-变量继承" class="headerlink" title="4.变量继承"></a><em>4.变量继承</em></h3><ol>
+<li>命令格式：<code>export A=damn</code>；<blockquote>
+<p><mark>Attention</mark>：上面命令执行后，当前<code>shell</code>和随后新建的<code>shell</code>都可以读取变量<code>A</code>，并且子<code>shell</code>修改的变量不会影响父<code>shell</code>；</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="5-特殊变量"><a href="#5-特殊变量" class="headerlink" title="5.特殊变量"></a><em>5.特殊变量</em></h3><ol>
+<li><code>$?</code>：<code>$?</code>为上一个命令的<mark>退出码</mark>，用来判断上一个命令是否执行成功。<strong><em>返回值是<code>0</code>，表示上一个命令执行成功；如果不是零，表示上一个命令执行失败</em></strong>；</li>
+<li>$$$$：$$$$为当前 Shell 的进程 ID；</li>
+<li><code>$_</code>：<code>$_</code>为上一个命令的<strong><em>最后一个参数</em></strong>；</li>
+<li><code>$!</code>：<code>$!</code>为最近一个后台执行的异步命令的进程 ID；</li>
+<li><code>$0</code>：<code>$0</code>为当前 Shell 的名称（在命令行直接执行时）或者脚本名（在脚本中执行时）；</li>
+<li><code>$-</code>：<code>$-</code>为当前 Shell 的启动参数；</li>
+</ol>
+<h3 id="6-变量的默认值"><a href="#6-变量的默认值" class="headerlink" title="6.变量的默认值"></a><em>6.变量的默认值</em></h3><ol>
+<li><code>$&#123;A:-damn&#125;</code>：如果变量<code>A</code>存在且不为空，则返回它的值，否则返回<code>damn</code>。它的目的是返回一个默认值；</li>
+<li><code>$&#123;A:=damn&#125;</code>：如果变量<code>A</code>存在且不为空，则返回它的值，否则将它设为<code>damn</code>，并且返回<code>damn</code>。它的目的是设置变量的默认值；</li>
+<li><code>$&#123;A:+damn&#125;</code>：如果变量<code>A</code>存在且不为空，则返回<code>damn</code>，否则返回空值。它的目的是测试变量是否存在；</li>
+<li><code>$&#123;A:?damn&#125;</code>：如果变量<code>A</code>存在且不为空，则返回它的值，否则打印出<code>A: damn</code>，并中断脚本的执行。如果省略了<code>damn</code>，则输出默认的信息“parameter null or not set.”。它的目的是防止变量未定义；</li>
+<li>上面四种语法如果用在脚本中，变量名的部分可以用数字<code>1</code>到<code>9</code>，表示脚本的参数。</li>
+</ol>
+<h3 id="7-declare命令"><a href="#7-declare命令" class="headerlink" title="7.declare命令"></a><em>7.declare命令</em></h3><ol>
+<li>语法格式：<code>declare -option A=value</code>：<code>declare</code>命令可以声明一些特殊类型的变量，为变量设置一些限制，比如声明只读类型的变量和整数类型的变量。</li>
+<li><code>declare</code>命令如果用在函数中，声明的变量只在函数内部有效，等同于<code>local</code>命令；</li>
+<li>不带任何参数时，<code>declare</code>命令输出当前环境的所有变量，包括函数在内，等同于不带有任何参数的<code>set</code>命令。<ul>
+<li><code>-i</code>：<code>-i</code>参数声明整数变量以后，可以直接进行数学运算；</li>
+<li><code>-x</code>：<code>-x</code>参数等同于<code>export</code>命令，可以输出一个变量为子 Shell 的环境变量；</li>
+<li><code>-r</code>：<code>-r</code>参数可以声明只读变量，无法改变变量值，也不能<code>unset</code>变量；</li>
+<li><code>-u</code>：<code>-u</code>参数声明变量为大写字母，可以自动把变量值转成大写字母；</li>
+<li><code>-l</code>：<code>-l</code>参数声明变量为小写字母，可以自动把变量值转成小写字母；</li>
+<li><code>-p</code>：<code>-p</code>参数输出变量信息；</li>
+<li><code>-f</code>：<code>-f</code>参数输出当前环境的所有函数，包括它的定义；</li>
+<li><code>-F</code>：<code>-F</code>参数输出当前环境的所有函数名，不包含函数定义；</li>
+</ul>
+</li>
+</ol>
+<h3 id="8-readonly命令"><a href="#8-readonly命令" class="headerlink" title="8.readonly命令"></a><em>8.readonly命令</em></h3><ol>
+<li><code>readonly</code>命令等同于<code>declare -r</code>，用来声明只读变量，不能改变变量值，也不能<code>unset</code>变量；</li>
+</ol>
+<h3 id="9-let命令"><a href="#9-let命令" class="headerlink" title="9.let命令"></a><em>9.let命令</em></h3><ol>
+<li><code>let</code>命令声明变量时，可以直接执行算术表达式；</li>
+<li><code>let</code>命令的参数表达式如果包含空格，就需要使用引号；</li>
+<li><code>let</code>可以同时对多个变量赋值，赋值表达式之间使用空格分隔；</li>
+</ol>
+<h2 id="六、字符串操作"><a href="#六、字符串操作" class="headerlink" title="六、字符串操作"></a>六、字符串操作</h2><h3 id="1-字符串的长度"><a href="#1-字符串的长度" class="headerlink" title="1.字符串的长度"></a><em>1.字符串的长度</em></h3><ol>
+<li>`$</li>
 </ol>
 
                 
@@ -1121,7 +1203,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">11.3k</span>&nbsp;字
+                class="white-color">12.6k</span>&nbsp;字
             
             
             
