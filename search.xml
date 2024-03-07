@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>浅谈make</title>
+      <link href="/2024/03/06/make-qian-tan/"/>
+      <url>/2024/03/06/make-qian-tan/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Make浅谈"><a href="#Make浅谈" class="headerlink" title="Make浅谈"></a>Make浅谈</h1><h2 id="一、What’s-Make"><a href="#一、What’s-Make" class="headerlink" title="一、What’s Make"></a>一、What’s Make</h2><ol><li>代码变成<mark>可执行文件</mark>叫做<mark>编译</mark>（compile）；先编译这个，还是先编译那个（即编译的安排），叫做<mark>构建</mark>（build）；</li><li>make只是一个根据指定的Shell命令进行构建的工具。它的规则很简单，你规定要构建哪个文件、它依赖哪些源文件，当那些文件有变动时，如何重新构建它；</li></ol><h2 id="二、Makefile的格式"><a href="#二、Makefile的格式" class="headerlink" title="二、Makefile的格式"></a>二、Makefile的格式</h2><h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a><em>1.概述</em></h3><ol><li>Makefile文件由一系列make的构建规则组成；每条规则的组成形式如下：<pre><code>&lt;target&gt; : &lt;prerequisites&gt; &lt;commands&gt;</code></pre></li><li>前置条件和命令都是可选项，但是必须至少存在一个；</li></ol><h3 id="2-target"><a href="#2-target" class="headerlink" title="2.target"></a><em>2.target</em></h3><ol><li>一般情况，target为文件名，指明make命令要构建的对象（当为多个文件名时，需要用空格隔开）；</li><li>target也可以是操作的名字，同时为了和当前目录中已存在的文件重复，需要声明其为伪目标，如下：<pre><code>.PHONY: cleanclean : rm *.o temp</code></pre></li></ol><h3 id="3-prerequisites"><a href="#3-prerequisites" class="headerlink" title="3.prerequisites"></a><em>3.prerequisites</em></h3><p>1. </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 实用工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 浅谈系列 </tag>
+            
+            <tag> GNU工具 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Bash浅谈</title>
       <link href="/2024/03/05/bash-qian-tan/"/>
       <url>/2024/03/05/bash-qian-tan/</url>
@@ -23,6 +50,8 @@
             <tag> Shell编程 </tag>
             
             <tag> Bash </tag>
+            
+            <tag> 浅谈系列 </tag>
             
         </tags>
       

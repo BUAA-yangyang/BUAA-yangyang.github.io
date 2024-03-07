@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="GIT简介, yangyang&#39;s blog">
+    <meta name="keywords" content="浅谈make, yangyang&#39;s blog">
     <meta name="description" content="noob now">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>GIT简介 | yangyang&#39;s blog</title>
+    <title>浅谈make | yangyang&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">GIT简介</h1>
+                    <h1 class="description center-align post-title">浅谈make</h1>
                 </div>
             </div>
         </div>
@@ -431,12 +431,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/GIT/">
-                                <span class="chip bg-color">GIT</span>
+                            <a href="/tags/%E6%B5%85%E8%B0%88%E7%B3%BB%E5%88%97/">
+                                <span class="chip bg-color">浅谈系列</span>
                             </a>
                         
-                            <a href="/tags/%E4%BB%A3%E7%A0%81%E6%89%98%E7%AE%A1/">
-                                <span class="chip bg-color">代码托管</span>
+                            <a href="/tags/GNU%E5%B7%A5%E5%85%B7/">
+                                <span class="chip bg-color">GNU工具</span>
                             </a>
                         
                     </div>
@@ -447,8 +447,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/GIT/" class="post-category">
-                                GIT
+                            <a href="/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" class="post-category">
+                                实用工具
                             </a>
                         
                     </div>
@@ -460,7 +460,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-03-05
+                    2024-03-06
                 </div>
                 
 
@@ -469,14 +469,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    951
+                    251
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    1 分
                 </div>
                 
 
@@ -496,70 +496,24 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="GIT简介"><a href="#GIT简介" class="headerlink" title="GIT简介"></a>GIT简介</h1><h2 id="一、GIT概述"><a href="#一、GIT概述" class="headerlink" title="一、GIT概述"></a>一、GIT概述</h2><h3 id="1-Version-Control"><a href="#1-Version-Control" class="headerlink" title="1.Version Control"></a><em>1.Version Control</em></h3><ul>
-<li><mark>版本控制</mark>是一种记录文件内容变化， 以便将来<strong><em>查阅特定版本修订情况的系统</em></strong>；</li>
-<li>其意义在于从个人开发过渡到团队协作；</li>
-<li>Git是一种分布式的版本控制工具，支持离线工作，版本控制在本地进行；</li>
-</ul>
-<h3 id="2-Git工作机制"><a href="#2-Git工作机制" class="headerlink" title="2.Git工作机制"></a><em>2.Git工作机制</em></h3><ol>
-<li>系统组成：<ul>
-<li><strong><em>工作区</em></strong>：存放代码的地方；</li>
-<li><strong><em>暂存区</em></strong>：临时存储，用于临时存放你的改动，事实上它是一个文件，保存即将提交的列表信息；</li>
-<li><strong><em>本地库</em></strong>：将暂存区的代码提交到本地库，这里有你提交到所有版本的数据，其中HEAD指向最新放入仓库的版本；</li>
-<li><strong><em>远程库</em></strong>：将本地库的代码推送到远程库，托管代码的服务器；</li>
-</ul>
-</li>
-<li>常用命令：<ul>
-<li><code>clone</code>：从远程仓库中克隆代码到本地仓库；</li>
-<li><code>checkout</code>：从本地仓库检出一个仓库分支然后进行更新；</li>
-<li><code>add</code>：将代码提交到暂存区；</li>
-<li><code>commit</code>：将代码提交到本地仓库；</li>
-<li><code>fetch</code>：从远程库抓取代码到本地仓库，使用较少；</li>
-<li><code>pull</code>：将代码从远程库拉到本地库进行合并（merge）,然后放到工作区；</li>
-<li><code>push</code>：更新完成后，将代码推送到远程仓库；</li>
-</ul>
-</li>
-<li>文件状态：<ul>
-<li><code>Untracked</code>：未跟踪，此文件在文件夹中，但并没有加入到git仓库，不参与版本控制。通过<code>git add</code> 状态变为<code>Staged</code>.</li>
-<li><code>Unmodify</code>:文件已经入库，未修改，即版本库中的文件快照内容与文件夹完全一致.这种类型的文件有两种去处，如果它被修改，而变为<code>Modified</code>.如果使用<code>git rm</code> 移出版本库，则成为<code>Untracked</code>文件.</li>
-<li><code>Modified</code>:文件已修改，仅仅是修改，并没有进行其他的操作.这个文件也有两个去处，通过<code>git add</code>可进入暂存<code>staged</code>状态，使用<code>git checkout</code>，则丢弃修改过，返回<code>Unmodify</code>状态，这个<code>git checkout</code>即从库中取出文件，覆盖当前修改！</li>
-<li><code>Staged</code>：暂存状态，执行<code>git commit</code>则将修改同步到库中，这时库中的文件和本地文件又变为一致，文件为<code>Unmodify</code>状态。执行<code>git reset HEAD filename</code>取消暂存，文件状态为<code>Modified</code>；<h2 id="二、Git基础操作命令详解"><a href="#二、Git基础操作命令详解" class="headerlink" title="二、Git基础操作命令详解"></a>二、Git基础操作命令详解</h2></li>
-</ul>
-</li>
-<li>查看修改状态（暂存区、工作区）：<code>git status</code></li>
-<li>将代码添加到暂存区：<code>git add xxx</code><blockquote>
-<p><mark>Attention</mark>：<code>git add .</code>可以一次提交所有修改文件；</p>
-</blockquote>
-</li>
-<li>将代码提交到本地仓库：<code>git commit -m &quot;注释内容&quot; xxx</code><blockquote>
-<p><mark>Attention</mark>：xxx（文件名）省略则表明提交所有修改文件；</p>
-</blockquote>
-</li>
-<li>查看提交日志：<code>git log [option]</code><ul>
-<li><code>--all</code>：显示所有分支；</li>
-<li><code>--pretty=oneline</code>：将提交信息显示为一行；</li>
-<li><code>--graph</code>：以图的形式显示；</li>
-</ul>
-</li>
-<li>版本回退：<code>git reset --hard commitID</code><blockquote>
-<p><mark>Attention</mark>：<br><em>①<code>commitID</code>可以由<code>git log</code>查看；</em><br><em>②<code>git reflog</code>可以查看已经删除的提交记录；</em><br><em>③Git 切换版本， 底层其实是移动的 HEAD 指针；</em></p>
-</blockquote>
-</li>
+                <h1 id="Make浅谈"><a href="#Make浅谈" class="headerlink" title="Make浅谈"></a>Make浅谈</h1><h2 id="一、What’s-Make"><a href="#一、What’s-Make" class="headerlink" title="一、What’s Make"></a>一、What’s Make</h2><ol>
+<li>代码变成<mark>可执行文件</mark>叫做<mark>编译</mark>（compile）；先编译这个，还是先编译那个（即编译的安排），叫做<mark>构建</mark>（build）；</li>
+<li>make只是一个根据指定的Shell命令进行构建的工具。它的规则很简单，你规定要构建哪个文件、它依赖哪些源文件，当那些文件有变动时，如何重新构建它；</li>
 </ol>
-<h2 id="三、Git分支操作"><a href="#三、Git分支操作" class="headerlink" title="三、Git分支操作"></a>三、Git分支操作</h2><h3 id="1-What’s-Branch"><a href="#1-What’s-Branch" class="headerlink" title="1.What’s Branch"></a><em>1.What’s Branch</em></h3><ol>
-<li>在<mark>版本控制</mark>过程中，同时推进多个任务，我们就可以创建<strong>每个任务的单独分支</strong>。使用分支意味着程序员可以把自己的工作从开发主线上<strong><em>分离</em></strong>开来， 开发自己分支的时候，不会影响主线分支的运行。</li>
-<li>各个分支在开发过程中，如果某一个分支开发失败,不会对其他分支有任何影响。失败的分支删除重新开始即可。</li>
+<h2 id="二、Makefile的格式"><a href="#二、Makefile的格式" class="headerlink" title="二、Makefile的格式"></a>二、Makefile的格式</h2><h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a><em>1.概述</em></h3><ol>
+<li>Makefile文件由一系列make的构建规则组成；每条规则的组成形式如下：<pre><code>&lt;target&gt; : &lt;prerequisites&gt;
+ &lt;commands&gt;
+</code></pre></li>
+<li>前置条件和命令都是可选项，但是必须至少存在一个；</li>
 </ol>
-<h3 id="2-分支操作命令详解"><a href="#2-分支操作命令详解" class="headerlink" title="2.分支操作命令详解"></a><em>2.分支操作命令详解</em></h3><ol>
-<li>查看本地分支：<code>git branch</code></li>
-<li>创建本地分支：<code>git branch xxx</code></li>
-<li>切换分支：<code>git checkout xxx</code><blockquote>
-<p><mark>Attention</mark>：<code>git checkout -b xxx</code>可以直接切换到一个不存在的分支（创建并切换）；</p>
-</blockquote>
-</li>
-<li>合并分支：<code>git merge xxx</code></li>
-<li>删除分支：</li>
+<h3 id="2-target"><a href="#2-target" class="headerlink" title="2.target"></a><em>2.target</em></h3><ol>
+<li>一般情况，target为文件名，指明make命令要构建的对象（当为多个文件名时，需要用空格隔开）；</li>
+<li>target也可以是操作的名字，同时为了和当前目录中已存在的文件重复，需要声明其为伪目标，如下：<pre><code>.PHONY: clean
+clean :
+ rm *.o temp
+</code></pre></li>
 </ol>
+<h3 id="3-prerequisites"><a href="#3-prerequisites" class="headerlink" title="3.prerequisites"></a><em>3.prerequisites</em></h3><p>1. </p>
 
                 
             </div>
@@ -586,7 +540,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://BUAA-yangyang.github.io/2024/03/05/git-jian-jie/">http://BUAA-yangyang.github.io/2024/03/05/git-jian-jie/</a>
+                    <a href="http://BUAA-yangyang.github.io/2024/03/06/make-qian-tan/">http://BUAA-yangyang.github.io/2024/03/06/make-qian-tan/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -624,12 +578,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/GIT/">
-                                    <span class="chip bg-color">GIT</span>
+                                <a href="/tags/%E6%B5%85%E8%B0%88%E7%B3%BB%E5%88%97/">
+                                    <span class="chip bg-color">浅谈系列</span>
                                 </a>
                             
-                                <a href="/tags/%E4%BB%A3%E7%A0%81%E6%89%98%E7%AE%A1/">
-                                    <span class="chip bg-color">代码托管</span>
+                                <a href="/tags/GNU%E5%B7%A5%E5%85%B7/">
+                                    <span class="chip bg-color">GNU工具</span>
                                 </a>
                             
                         </div>
@@ -799,9 +753,64 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2024/03/06/make-qian-tan/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="浅谈make">
+                        
+                        <span class="card-title">浅谈make</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" class="post-category">
+                                    实用工具
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%B5%85%E8%B0%88%E7%B3%BB%E5%88%97/">
+                        <span class="chip bg-color">浅谈系列</span>
+                    </a>
+                    
+                    <a href="/tags/GNU%E5%B7%A5%E5%85%B7/">
+                        <span class="chip bg-color">GNU工具</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2024/03/05/bash-qian-tan/">
                     <div class="card-image">
@@ -819,9 +828,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-03-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -847,55 +856,6 @@
                     
                     <a href="/tags/%E6%B5%85%E8%B0%88%E7%B3%BB%E5%88%97/">
                         <span class="chip bg-color">浅谈系列</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2024/03/04/sql-qian-tan/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="SQL浅谈">
-                        
-                        <span class="card-title">SQL浅谈</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-04
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                    数据库
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%AD%E8%A8%80/">
-                        <span class="chip bg-color">数据库语言</span>
                     </a>
                     
                 </div>
